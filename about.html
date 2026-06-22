@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — VoteInformed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0f0f0f;
+      --ink-2: #3a3a3a;
+      --ink-3: #6b6b6b;
+      --rule: #d4d0c8;
+      --bg: #f7f5f0;
+      --white: #ffffff;
+      --accent: #1a3a5c;
+      --red: #b01c1c;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      background: var(--white);
+      border-bottom: 3px solid var(--ink);
+      padding: 0 24px;
+    }
+    .masthead-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0 12px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .site-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--ink);
+      line-height: 1;
+      text-decoration: none;
+    }
+    .site-tagline {
+      font-size: 12px;
+      color: var(--ink-3);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--ink);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+    }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      display: block;
+      white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+    }
+    nav a:hover, nav a.active { color: var(--white); background: rgba(255,255,255,0.08); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--accent);
+      color: white;
+      padding: 56px 24px;
+    }
+    .page-header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .page-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    /* ── MISSION BLOCK ── */
+    .mission {
+      border-left: 4px solid var(--accent);
+      padding: 24px 28px;
+      background: var(--white);
+      margin-bottom: 48px;
+    }
+    .mission-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+
+    /* ── BODY COPY ── */
+    .body-section {
+      margin-bottom: 40px;
+    }
+    .body-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .body-section p {
+      font-size: 17px;
+      color: var(--ink-2);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .body-section p:last-child { margin-bottom: 0; }
+
+    /* ── PRINCIPLES ── */
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .principle {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      padding: 20px;
+    }
+    .principle-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .principle-desc {
+      font-size: 14px;
+      color: var(--ink-3);
+      line-height: 1.55;
+    }
+
+    /* ── FOUNDER CARD ── */
+    .founder-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      padding: 28px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      margin-top: 8px;
+    }
+    .founder-avatar {
+      width: 64px;
+      height: 64px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: white;
+    }
+    .founder-info {}
+    .founder-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .founder-role {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .founder-bio {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: var(--accent);
+      color: white;
+      padding: 32px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .cta-desc {
+      font-size: 15px;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 11px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .btn-white { background: white; color: var(--accent); }
+    .btn-white:hover { background: #e8eef5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: #aaa;
+      padding: 32px 24px;
+      margin-top: 0;
+      font-size: 13px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: #aaa; text-decoration: none; }
+    .footer-links a:hover { color: white; }
+
+    @media (max-width: 600px) {
+      .principles { grid-template-columns: 1fr; }
+      .founder-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div>
+        <a href="/" class="site-name">VoteInformed</a>
+        <div class="site-tagline">Voter guides · Issue explainers · Debate resources</div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/">Home</a>
+      <a href="/vote">How to Vote</a>
+      <a href="/issues">The Issues</a>
+      <a href="/debate">Debate Prep</a>
+      <a href="/about" class="active">About</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-eyebrow">About VoteInformed</div>
+      <h1 class="page-title">Built for the people who never got the memo.</h1>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="mission">
+      <div class="mission-text">"Everyone deserves to know who and what they're voting for — not just people who already follow politics."</div>
+    </div>
+
+    <div class="body-section">
+      <h2>Why this exists</h2>
+      <p>Most political content is written for people who are already engaged. The explainers assume you know the backstory. The debate coverage assumes you already have a side. The voter guides are buried on government websites that nobody finds until the night before an election.</p>
+      <p>VoteInformed was built to fix that. The goal is simple: take everything that feels complicated or partisan about civic life and make it genuinely accessible — to anyone, regardless of how much they follow the news.</p>
+      <p>An informed vote isn't a Democratic vote or a Republican vote. It's a vote made with real understanding of what's at stake. That's what this site is for.</p>
+    </div>
+
+    <div class="body-section">
+      <h2>What we believe</h2>
+      <div class="principles">
+        <div class="principle">
+          <div class="principle-title">No spin</div>
+          <div class="principle-desc">Every issue is presented with the strongest arguments on both sides. We don't tell you what to think.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Plain language</div>
+          <div class="principle-desc">No jargon, no assumed knowledge. If you need to Google a word to understand the explainer, we've failed.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-title">No ads</div>
+          <div class="principle-desc">This site has no advertisers and no political sponsors. Nobody is paying to have their message here.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-title">Built for everyone</div>
+          <div class="principle-desc">First-time voters, debate students, lifelong citizens — this resource is for anyone who wants to be more informed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="body-section">
+      <h2>Who built this</h2>
+      <div class="founder-card">
+        <div class="founder-avatar">RY</div>
+        <div class="founder-info">
+          <div class="founder-name">Ryan Yarlagadda</div>
+          <div class="founder-role">Founder</div>
+          <div class="founder-bio">I built VoteInformed because I kept seeing people around me — smart, thoughtful people — feel lost when it came to politics. Not because they didn't care, but because nobody had ever broken it down for them in a way that made sense. This site is my attempt to change that. No agenda, no party, just clarity.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <div class="cta-title">Ready to get informed?</div>
+      <div class="cta-desc">Start with the issues, check your registration, or dive into debate prep.</div>
+      <a href="/" class="btn btn-white">Back to home</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-name">VoteInformed</div>
+        <div style="margin-top:4px;">Nonpartisan civic education. No ads, no agenda.</div>
+      </div>
+      <div class="footer-links">
+        <a href="/vote">How to vote</a>
+        <a href="/issues">Issues</a>
+        <a href="/debate">Debate prep</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
