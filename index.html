@@ -8,793 +8,324 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --ink: #0f0f0f;
-      --ink-2: #3a3a3a;
-      --ink-3: #6b6b6b;
-      --rule: #d4d0c8;
-      --bg: #f7f5f0;
-      --white: #ffffff;
-      --accent: #1a3a5c;
-      --accent-light: #e8eef5;
-      --red: #b01c1c;
-      --green: #1a5c3a;
-      --amber: #7a4e00;
+      --ink: #0f0f0f; --ink-2: #3a3a3a; --ink-3: #6b6b6b;
+      --rule: #d4d0c8; --bg: #f7f5f0; --white: #ffffff;
+      --accent: #1a3a5c; --accent-light: #e8eef5;
+      --red: #b01c1c; --green: #1a5c3a; --amber: #7a4e00;
     }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.6;
-    }
+    .masthead { background: var(--white); border-bottom: 3px solid var(--ink); padding: 0 24px; }
+    .masthead-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 0 12px; gap: 16px; flex-wrap: wrap; }
+    .site-name { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; letter-spacing: -1px; color: var(--ink); line-height: 1; text-decoration: none; display: block; }
+    .site-tagline { font-size: 12px; color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+    .masthead-date { font-size: 12px; color: var(--ink-3); letter-spacing: 0.05em; text-align: right; }
 
-    /* ── MASTHEAD ── */
-    .masthead {
-      background: var(--white);
-      border-bottom: 3px solid var(--ink);
-      padding: 0 24px;
-    }
-    .masthead-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0 12px;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .masthead-left {
-      display: flex;
-      flex-direction: column;
-    }
-    .site-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 5vw, 48px);
-      font-weight: 900;
-      letter-spacing: -1px;
-      color: var(--ink);
-      line-height: 1;
-    }
-    .site-tagline {
-      font-size: 12px;
-      color: var(--ink-3);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-    .masthead-date {
-      font-size: 12px;
-      color: var(--ink-3);
-      letter-spacing: 0.05em;
-      text-align: right;
-    }
+    nav { background: var(--ink); padding: 0 24px; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; }
+    nav a { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 18px; display: block; white-space: nowrap; transition: color 0.15s, background 0.15s; }
+    nav a:hover, nav a.active { color: #fff; background: rgba(255,255,255,0.08); }
 
-    /* ── NAV ── */
-    nav {
-      background: var(--ink);
-      padding: 0 24px;
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      gap: 0;
-      overflow-x: auto;
-    }
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 10px 18px;
-      display: block;
-      white-space: nowrap;
-      transition: color 0.15s, background 0.15s;
-    }
-    nav a:hover, nav a.active {
-      color: var(--white);
-      background: rgba(255,255,255,0.08);
-    }
-
-    /* ── BREAKING BANNER ── */
-    .banner {
-      background: var(--accent);
-      color: white;
-      padding: 10px 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 13px;
-    }
-    .banner-label {
-      background: var(--red);
-      color: white;
-      font-weight: 600;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 2px 8px;
-      flex-shrink: 0;
-    }
-    .banner-text { flex: 1; }
+    .banner { background: var(--accent); color: white; padding: 10px 24px; display: flex; align-items: center; gap: 12px; font-size: 13px; }
+    .banner-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; width: 100%; }
+    .banner-label { background: var(--red); color: white; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; flex-shrink: 0; }
     .banner a { color: #a8c8f0; text-decoration: underline; }
 
-    /* ── LAYOUT ── */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-    /* ── HERO GRID ── */
-    .hero {
-      padding: 32px 24px 0;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 32px;
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 32px;
-    }
-    .hero-main {}
-    .hero-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 10px;
-    }
-    .hero-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
-      color: var(--ink);
-      margin-bottom: 16px;
-    }
-    .hero-deck {
-      font-size: 17px;
-      color: var(--ink-2);
-      line-height: 1.65;
-      margin-bottom: 24px;
-      max-width: 580px;
-    }
-    .hero-cta {
-      display: inline-flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-block;
-      padding: 11px 22px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: all 0.15s;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
+    .hero { padding: 32px 24px 0; max-width: 1100px; margin: 0 auto; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 340px; gap: 32px; border-bottom: 1px solid var(--rule); padding-bottom: 32px; }
+    .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+    .hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .hero-deck { font-size: 17px; color: var(--ink-2); line-height: 1.65; margin-bottom: 24px; max-width: 580px; }
+    .hero-cta { display: inline-flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 11px 22px; font-size: 14px; font-weight: 600; text-decoration: none; letter-spacing: 0.03em; transition: all 0.15s; border: none; cursor: pointer; }
+    .btn-primary { background: var(--accent); color: white; }
     .btn-primary:hover { background: #0f2840; }
-    .btn-outline {
-      background: transparent;
-      color: var(--ink);
-      border: 1.5px solid var(--ink);
-    }
+    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
     .btn-outline:hover { background: var(--ink); color: white; }
 
-    /* ── SIDEBAR ── */
-    .hero-sidebar {
-      border-left: 1px solid var(--rule);
-      padding-left: 32px;
-    }
-    .sidebar-title {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--ink);
-    }
-    .sidebar-item {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--rule);
-    }
+    .hero-sidebar { border-left: 1px solid var(--rule); padding-left: 32px; }
+    .sidebar-title { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+    .sidebar-item { padding: 14px 0; border-bottom: 1px solid var(--rule); }
     .sidebar-item:last-child { border-bottom: none; }
-    .sidebar-item-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .sidebar-item-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px;
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--ink);
-      text-decoration: none;
-      display: block;
-      transition: color 0.15s;
-    }
+    .sidebar-item-label { font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .sidebar-item-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--ink); text-decoration: none; display: block; transition: color 0.15s; }
     .sidebar-item-title:hover { color: var(--accent); }
-    .sidebar-item-desc {
-      font-size: 13px;
-      color: var(--ink-3);
-      margin-top: 4px;
-    }
+    .sidebar-item-desc { font-size: 13px; color: var(--ink-3); margin-top: 4px; }
 
-    /* ── SECTION HEADERS ── */
     .section { padding: 40px 0; }
     .section + .section { border-top: 1px solid var(--rule); }
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 28px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--ink);
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .section-more {
-      font-size: 12px;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      font-weight: 500;
-      margin-left: auto;
-    }
+    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; }
+    .section-more { font-size: 12px; color: var(--accent); text-decoration: none; letter-spacing: 0.05em; font-weight: 500; margin-left: auto; }
     .section-more:hover { text-decoration: underline; }
 
-    /* ── CARD GRID ── */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .card {
-      background: var(--white);
-      border: 1px solid var(--rule);
-      padding: 20px;
-      transition: border-color 0.15s;
-    }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card { background: var(--white); border: 1px solid var(--rule); padding: 20px; transition: border-color 0.15s; text-decoration: none; display: block; }
     .card:hover { border-color: var(--ink); }
-    .card-tag {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+    .card-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
     .tag-vote { color: var(--red); }
     .tag-issue { color: var(--accent); }
-    .tag-debate { color: var(--green); }
-    .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 19px;
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--ink);
-      margin-bottom: 8px;
-    }
-    .card-body {
-      font-size: 14px;
-      color: var(--ink-2);
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-    .card-link {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.03em;
-    }
-    .card-link:hover { text-decoration: underline; }
+    .tag-media { color: var(--green); }
+    .tag-news { color: var(--amber); }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
+    .card-body { font-size: 14px; color: var(--ink-2); line-height: 1.6; margin-bottom: 14px; }
+    .card-link { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
     .card-link::after { content: ' →'; }
 
-    /* ── VOTER CHECKLIST ── */
-    .checklist {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .check-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      background: var(--white);
-      border: 1px solid var(--rule);
-      padding: 18px;
-    }
-    .check-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--rule);
-      line-height: 1;
-      flex-shrink: 0;
-      width: 36px;
-    }
-    .check-content {}
-    .check-title {
-      font-weight: 600;
-      font-size: 15px;
-      margin-bottom: 4px;
-      color: var(--ink);
-    }
-    .check-desc {
-      font-size: 13px;
-      color: var(--ink-3);
-      line-height: 1.5;
-    }
-    .check-desc a {
-      color: var(--accent);
-      text-decoration: underline;
-    }
+    .checklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .check-item { display: flex; gap: 14px; align-items: flex-start; background: var(--white); border: 1px solid var(--rule); padding: 18px; }
+    .check-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--rule); line-height: 1; flex-shrink: 0; width: 36px; }
+    .check-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+    .check-desc { font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+    .check-desc a { color: var(--accent); text-decoration: underline; }
 
-    /* ── DEBATE SECTION ── */
-    .debate-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .debate-card {
-      border: 1px solid var(--rule);
-      background: var(--white);
-      overflow: hidden;
-    }
-    .debate-header {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .debate-topic {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 16px;
-    }
-    .debate-tag {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--green);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .debate-sides {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .debate-side {
-      padding: 14px 18px;
-      font-size: 13px;
-      color: var(--ink-2);
-      line-height: 1.5;
-    }
-    .debate-side:first-child {
-      border-right: 1px solid var(--rule);
-      background: #f0f7f0;
-    }
-    .debate-side:last-child {
-      background: #fdf0f0;
-    }
-    .debate-side-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .for-label { color: var(--green); }
-    .against-label { color: var(--red); }
-
-    /* ── STATE LOOKUP ── */
-    .lookup-box {
-      background: var(--accent);
-      color: white;
-      padding: 32px;
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
+    .lookup-box { background: var(--accent); color: white; padding: 32px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
     .lookup-text { flex: 1; min-width: 200px; }
-    .lookup-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
+    .lookup-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin-bottom: 6px; }
     .lookup-desc { font-size: 14px; opacity: 0.8; }
-    .lookup-form {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .lookup-select {
-      padding: 10px 16px;
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
-      border: none;
-      background: white;
-      color: var(--ink);
-      min-width: 180px;
-      cursor: pointer;
-    }
-    .btn-white {
-      background: white;
-      color: var(--accent);
-      font-weight: 600;
-    }
+    .lookup-form { display: flex; gap: 10px; flex-wrap: wrap; }
+    .lookup-select { padding: 10px 16px; font-size: 14px; font-family: 'Inter', sans-serif; border: none; background: white; color: var(--ink); min-width: 180px; cursor: pointer; }
+    .btn-white { background: white; color: var(--accent); font-weight: 600; }
     .btn-white:hover { background: #e8eef5; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      color: #aaa;
-      padding: 32px 24px;
-      margin-top: 48px;
-      font-size: 13px;
-    }
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: white;
-    }
-    .footer-links { display: flex; gap: 20px; }
+    footer { background: var(--ink); color: #aaa; padding: 32px 24px; margin-top: 48px; font-size: 13px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { color: #aaa; text-decoration: none; }
     .footer-links a:hover { color: white; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .hero-grid { grid-template-columns: 1fr; }
       .hero-sidebar { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 24px; }
       .card-grid { grid-template-columns: 1fr; }
       .checklist { grid-template-columns: 1fr; }
-      .debate-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- MASTHEAD -->
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div class="masthead-left">
-        <div class="site-name">VoteInformed</div>
-        <div class="site-tagline">Voter guides · Issue explainers · Debate resources</div>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <a href="/" class="site-name">VoteInformed</a>
+      <div class="site-tagline">Voter guides · Issue explainers · Debate resources</div>
+    </div>
+    <div class="masthead-date" id="date-display"></div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="active">Home</a>
+    <a href="#register">How to Vote</a>
+    <a href="#issues">The Issues</a>
+    <a href="/news.html">News</a>
+    <a href="/opinions.html">Opinions</a>
+    <a href="/media.html">Media Bias</a>
+    <a href="/about.html">About</a>
+  </div>
+</nav>
+
+<div class="banner">
+  <div class="banner-inner">
+    <span class="banner-label">Guide</span>
+    <span>2026 midterm elections are coming — <a href="#register">check if you're registered</a> before your state's deadline.</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-grid">
+    <div class="hero-main">
+      <div class="hero-eyebrow">Civic Education</div>
+      <h1 class="hero-headline">Know what you're voting on before you vote.</h1>
+      <p class="hero-deck">VoteInformed breaks down how to register, where to vote, what the major issues actually mean, and how to stay informed — clearly, without spin.</p>
+      <div class="hero-cta">
+        <a href="#register" class="btn btn-primary">Check registration</a>
+        <a href="#issues" class="btn btn-outline">Browse the issues</a>
       </div>
-      <div class="masthead-date" id="date-display"></div>
     </div>
-  </header>
+    <aside class="hero-sidebar">
+      <div class="sidebar-title">Start here</div>
+      <div class="sidebar-item">
+        <div class="sidebar-item-label">Voting</div>
+        <a href="#register" class="sidebar-item-title">Am I registered to vote?</a>
+        <p class="sidebar-item-desc">How to check your status and register in any state.</p>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-item-label">Issues</div>
+        <a href="#issues" class="sidebar-item-title">What are candidates actually debating?</a>
+        <p class="sidebar-item-desc">Plain-English breakdowns of the issues that shape elections.</p>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-item-label">Media</div>
+        <a href="/media.html" class="sidebar-item-title">Where does your news come from?</a>
+        <p class="sidebar-item-desc">See where major outlets fall on the political spectrum.</p>
+      </div>
+    </aside>
+  </div>
+</div>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="active">Home</a>
-      <a href="#register">How to Vote</a>
-      <a href="#issues">The Issues</a>
-      <a href="#debate">Debate Prep</a>
-      <a href="#state">Your State</a>
+<div class="container">
+
+  <section class="section" id="register">
+    <div class="section-header">
+      <h2 class="section-title">How to vote</h2>
+      <a href="#" class="section-more">Full guide →</a>
     </div>
-  </nav>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-num">01</div>
+        <div>
+          <div class="check-title">Check if you're registered</div>
+          <div class="check-desc">Visit <a href="https://vote.gov" target="_blank">vote.gov</a> or your state's Secretary of State website to look up your registration status. It takes 60 seconds.</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-num">02</div>
+        <div>
+          <div class="check-title">Register or update your address</div>
+          <div class="check-desc">Most states let you register online. Deadlines vary — some allow same-day registration, others cut off 30 days before an election.</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-num">03</div>
+        <div>
+          <div class="check-title">Find your polling place</div>
+          <div class="check-desc">Your polling location is assigned by address. <a href="https://www.vote.org/polling-place-locator/" target="_blank">Vote.org's locator</a> works for every state.</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-num">04</div>
+        <div>
+          <div class="check-title">Know what ID you need</div>
+          <div class="check-desc">ID requirements vary by state — some require photo ID, others accept a utility bill. Check your state's rules before election day.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- BREAKING BANNER -->
-  <div class="banner">
-    <div class="container" style="display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;padding:0 0px;">
-      <span class="banner-label">Guide</span>
-      <span class="banner-text">2026 midterm elections are coming — <a href="#register">check if you're registered</a> before your state's deadline.</span>
+  <div class="lookup-box">
+    <div class="lookup-text">
+      <div class="lookup-title">Get your state's voting rules</div>
+      <div class="lookup-desc">Deadlines, ID requirements, early voting, and mail-in ballot info.</div>
+    </div>
+    <div class="lookup-form">
+      <select class="lookup-select" id="state-select">
+        <option value="">Select your state…</option>
+        <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+        <option>Arkansas</option><option>California</option><option>Colorado</option>
+        <option>Connecticut</option><option>Delaware</option><option>Florida</option>
+        <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+        <option>Illinois</option><option>Indiana</option><option>Iowa</option>
+        <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+        <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+        <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+        <option>Missouri</option><option>Montana</option><option>Nebraska</option>
+        <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+        <option>New Mexico</option><option>New York</option><option>North Carolina</option>
+        <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+        <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+        <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+        <option>Texas</option><option>Utah</option><option>Vermont</option>
+        <option>Virginia</option><option>Washington</option><option>West Virginia</option>
+        <option>Wisconsin</option><option>Wyoming</option>
+      </select>
+      <button class="btn btn-white" onclick="lookupState()">Look up rules</button>
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-grid">
-      <div class="hero-main">
-        <div class="hero-eyebrow">Civic Education</div>
-        <h1 class="hero-headline">Know what you're voting on before you vote.</h1>
-        <p class="hero-deck">VoteInformed breaks down how to register, where to vote, what the major issues actually mean, and how to argue both sides of any political debate — clearly, without spin.</p>
-        <div class="hero-cta">
-          <a href="#register" class="btn btn-primary">Check registration</a>
-          <a href="#issues" class="btn btn-outline">Browse the issues</a>
-        </div>
-      </div>
-      <aside class="hero-sidebar">
-        <div class="sidebar-title">Start here</div>
-        <div class="sidebar-item">
-          <div class="sidebar-item-label">Voting</div>
-          <a href="#register" class="sidebar-item-title">Am I registered to vote?</a>
-          <p class="sidebar-item-desc">How to check your status and register in any state.</p>
-        </div>
-        <div class="sidebar-item">
-          <div class="sidebar-item-label">Issues</div>
-          <a href="#issues" class="sidebar-item-title">What are candidates actually debating?</a>
-          <p class="sidebar-item-desc">Plain-English breakdowns of the issues that shape elections.</p>
-        </div>
-        <div class="sidebar-item">
-          <div class="sidebar-item-label">Debate prep</div>
-          <a href="#debate" class="sidebar-item-title">How to argue any side of any issue</a>
-          <p class="sidebar-item-desc">Structured argument guides built for competitive debate.</p>
-        </div>
-      </aside>
+  <section class="section" id="issues">
+    <div class="section-header">
+      <h2 class="section-title">The issues</h2>
+      <a href="/issues.html" class="section-more">All issues →</a>
+    </div>
+    <div class="card-grid">
+      <a href="/issues.html" class="card">
+        <div class="card-tag tag-issue">Economy</div>
+        <h3 class="card-title">Inflation and the cost of living</h3>
+        <p class="card-body">Why everyday prices rose sharply, what the government can and can't control, and what different parties propose to fix it.</p>
+        <span class="card-link">Read the explainer</span>
+      </a>
+      <a href="/issues.html" class="card">
+        <div class="card-tag tag-issue">Healthcare</div>
+        <h3 class="card-title">Health insurance and the ACA</h3>
+        <p class="card-body">How the Affordable Care Act works, what's changed since 2010, and the debate over expanding or replacing it.</p>
+        <span class="card-link">Read the explainer</span>
+      </a>
+      <a href="/issues.html" class="card">
+        <div class="card-tag tag-issue">Immigration</div>
+        <h3 class="card-title">Border policy and immigration reform</h3>
+        <p class="card-body">The difference between legal and undocumented immigration, how enforcement actually works, and what reform proposals are on the table.</p>
+        <span class="card-link">Read the explainer</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" id="media">
+    <div class="section-header">
+      <h2 class="section-title">Media &amp; news</h2>
+    </div>
+    <div class="card-grid">
+      <a href="/news.html" class="card">
+        <div class="card-tag tag-news">Latest</div>
+        <h3 class="card-title">Today's news, explained</h3>
+        <p class="card-body">Breaking stories on politics, leadership changes, international affairs, and more — with context.</p>
+        <span class="card-link">Read the news</span>
+      </a>
+      <a href="/opinions.html" class="card">
+        <div class="card-tag tag-issue">Opinion</div>
+        <h3 class="card-title">Perspectives worth reading</h3>
+        <p class="card-body">Curated opinions and commentary from across the political spectrum — clearly labeled so you know where they're coming from.</p>
+        <span class="card-link">Read opinions</span>
+      </a>
+      <a href="/media.html" class="card">
+        <div class="card-tag tag-media">Media literacy</div>
+        <h3 class="card-title">Where your news comes from</h3>
+        <p class="card-body">An interactive guide to media bias — click any outlet to see its political lean, factual accuracy rating, and PolitiFact scores.</p>
+        <span class="card-link">View media bias chart</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">VoteInformed</div>
+      <div style="margin-top:4px;">Nonpartisan civic education. No ads, no agenda.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#register">How to vote</a>
+      <a href="#issues">Issues</a>
+      <a href="/news.html">News</a>
+      <a href="/opinions.html">Opinions</a>
+      <a href="/media.html">Media Bias</a>
+      <a href="/about.html">About</a>
     </div>
   </div>
+</footer>
 
-  <!-- MAIN CONTENT -->
-  <div class="container">
+<script>
+  document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-    <!-- HOW TO VOTE -->
-    <section class="section" id="register">
-      <div class="section-header">
-        <h2 class="section-title">How to vote</h2>
-        <a href="#" class="section-more">Full guide →</a>
-      </div>
-      <div class="checklist">
-        <div class="check-item">
-          <div class="check-num">01</div>
-          <div class="check-content">
-            <div class="check-title">Check if you're registered</div>
-            <div class="check-desc">Visit <a href="https://vote.gov" target="_blank">vote.gov</a> or your state's Secretary of State website to look up your registration status. It takes 60 seconds.</div>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-num">02</div>
-          <div class="check-content">
-            <div class="check-title">Register or update your address</div>
-            <div class="check-desc">Most states let you register online. Deadlines vary — some states allow same-day registration, others cut off 30 days before an election.</div>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-num">03</div>
-          <div class="check-content">
-            <div class="check-title">Find your polling place</div>
-            <div class="check-desc">Your polling location is assigned by address. <a href="https://www.vote.org/polling-place-locator/" target="_blank">Vote.org's locator</a> works for every state.</div>
-          </div>
-        </div>
-        <div class="check-item">
-          <div class="check-num">04</div>
-          <div class="check-content">
-            <div class="check-title">Know what ID you need</div>
-            <div class="check-desc">ID requirements vary by state — some require photo ID, others accept a utility bill. Check your state's rules before election day.</div>
-          </div>
-        </div>
-      </div>
-    </section>
+  function lookupState() {
+    const state = document.getElementById('state-select').value;
+    if (!state) { alert('Please select your state first.'); return; }
+    window.open('https://www.vote.org/state/' + state.toLowerCase().replace(/\s+/g, '-') + '/', '_blank');
+  }
 
-    <!-- STATE LOOKUP -->
-    <div class="lookup-box" style="margin-bottom:0;">
-      <div class="lookup-text">
-        <div class="lookup-title">Get your state's voting rules</div>
-        <div class="lookup-desc">Deadlines, ID requirements, early voting, and mail-in ballot info — specific to where you live.</div>
-      </div>
-      <div class="lookup-form">
-        <select class="lookup-select" id="state-select">
-          <option value="">Select your state…</option>
-          <option>Alabama</option><option>Alaska</option><option>Arizona</option>
-          <option>Arkansas</option><option>California</option><option>Colorado</option>
-          <option>Connecticut</option><option>Delaware</option><option>Florida</option>
-          <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
-          <option>Illinois</option><option>Indiana</option><option>Iowa</option>
-          <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
-          <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
-          <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
-          <option>Missouri</option><option>Montana</option><option>Nebraska</option>
-          <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
-          <option>New Mexico</option><option>New York</option><option>North Carolina</option>
-          <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
-          <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
-          <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
-          <option>Texas</option><option>Utah</option><option>Vermont</option>
-          <option>Virginia</option><option>Washington</option><option>West Virginia</option>
-          <option>Wisconsin</option><option>Wyoming</option>
-        </select>
-        <button class="btn btn-white" onclick="lookupState()">Look up rules</button>
-      </div>
-    </div>
-
-    <!-- THE ISSUES -->
-    <section class="section" id="issues">
-      <div class="section-header">
-        <h2 class="section-title">The issues</h2>
-        <a href="#" class="section-more">All issues →</a>
-      </div>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-tag tag-issue">Economy</div>
-          <h3 class="card-title">Inflation and the cost of living</h3>
-          <p class="card-body">Why everyday prices rose sharply, what the government can and can't control, and what different parties propose to fix it.</p>
-          <a href="#" class="card-link">Read the explainer</a>
-        </div>
-        <div class="card">
-          <div class="card-tag tag-issue">Healthcare</div>
-          <h3 class="card-title">Health insurance and the ACA</h3>
-          <p class="card-body">How the Affordable Care Act works, what's changed since 2010, and the debate over expanding or replacing it.</p>
-          <a href="#" class="card-link">Read the explainer</a>
-        </div>
-        <div class="card">
-          <div class="card-tag tag-issue">Immigration</div>
-          <h3 class="card-title">Border policy and immigration reform</h3>
-          <p class="card-body">The difference between legal and undocumented immigration, how enforcement actually works, and what reform proposals are on the table.</p>
-          <a href="#" class="card-link">Read the explainer</a>
-        </div>
-        <div class="card">
-          <div class="card-tag tag-issue">Environment</div>
-          <h3 class="card-title">Climate policy and energy</h3>
-          <p class="card-body">What the science says, what the policy debate is actually about, and how proposals like the Green New Deal or carbon taxes work.</p>
-          <a href="#" class="card-link">Read the explainer</a>
-        </div>
-        <div class="card">
-          <div class="card-tag tag-issue">Education</div>
-          <h3 class="card-title">Student debt and college costs</h3>
-          <p class="card-body">Why tuition got so expensive, how loan forgiveness programs work, and the arguments for and against canceling student debt.</p>
-          <a href="#" class="card-link">Read the explainer</a>
-        </div>
-        <div class="card">
-          <div class="card-tag tag-issue">Democracy</div>
-          <h3 class="card-title">Voting rights and election integrity</h3>
-          <p class="card-body">The laws that govern who can vote and how elections are run — and why both parties see them very differently.</p>
-          <a href="#" class="card-link">Read the explainer</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- DEBATE PREP -->
-    <section class="section" id="debate">
-      <div class="section-header">
-        <h2 class="section-title">Debate argument guides</h2>
-        <a href="#" class="section-more">All topics →</a>
-      </div>
-      <div class="debate-grid">
-        <div class="debate-card">
-          <div class="debate-header">
-            <div class="debate-topic">Raising the minimum wage</div>
-            <div class="debate-tag">Labor</div>
-          </div>
-          <div class="debate-sides">
-            <div class="debate-side">
-              <div class="debate-side-label for-label">For</div>
-              Workers earning poverty wages can't cover basic costs even while employed full-time. Higher wages reduce turnover and boost consumer spending.
-            </div>
-            <div class="debate-side">
-              <div class="debate-side-label against-label">Against</div>
-              Small businesses operating on thin margins may cut hours or jobs. Economists debate whether employment effects are minor or significant.
-            </div>
-          </div>
-        </div>
-        <div class="debate-card">
-          <div class="debate-header">
-            <div class="debate-topic">Universal healthcare</div>
-            <div class="debate-tag">Healthcare</div>
-          </div>
-          <div class="debate-sides">
-            <div class="debate-side">
-              <div class="debate-side-label for-label">For</div>
-              Every wealthy nation except the US guarantees coverage. Medical debt is the leading cause of personal bankruptcy in America.
-            </div>
-            <div class="debate-side">
-              <div class="debate-side-label against-label">Against</div>
-              Transitioning from private insurance would cost trillions and could reduce competition that drives medical innovation.
-            </div>
-          </div>
-        </div>
-        <div class="debate-card">
-          <div class="debate-header">
-            <div class="debate-topic">Student loan forgiveness</div>
-            <div class="debate-tag">Education</div>
-          </div>
-          <div class="debate-sides">
-            <div class="debate-side">
-              <div class="debate-side-label for-label">For</div>
-              Debt burdens delay homeownership and family formation. Forgiveness would stimulate economic participation among millions of young adults.
-            </div>
-            <div class="debate-side">
-              <div class="debate-side-label against-label">Against</div>
-              Blanket forgiveness benefits college graduates over non-graduates and does nothing to address why tuition keeps rising.
-            </div>
-          </div>
-        </div>
-        <div class="debate-card">
-          <div class="debate-header">
-            <div class="debate-topic">Stricter gun control</div>
-            <div class="debate-tag">Gun policy</div>
-          </div>
-          <div class="debate-sides">
-            <div class="debate-side">
-              <div class="debate-side-label for-label">For</div>
-              Countries with stricter laws have fewer gun deaths. Universal background checks have majority public support across party lines.
-            </div>
-            <div class="debate-side">
-              <div class="debate-side-label against-label">Against</div>
-              The Second Amendment protects an individual right. Law-abiding gun owners shouldn't face restrictions for crimes they didn't commit.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div><!-- /container -->
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="footer-name">VoteInformed</div>
-        <div style="margin-top:4px;">Nonpartisan civic education. No ads, no agenda.</div>
-      </div>
-      <div class="footer-links">
-<a href="/" class="active">Home</a>
-<a href="#register">How to Vote</a>
-<a href="#issues">The Issues</a>
-<a href="/news.html">News</a>
-<a href="/opinions.html">Opinions</a>
-<a href="/media.html">Media Bias</a>
-<a href="/about.html">About</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Display today's date in masthead
-    const d = new Date();
-    const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('date-display').textContent = d.toLocaleDateString('en-US', opts);
-
-    // State lookup
-    function lookupState() {
-      const state = document.getElementById('state-select').value;
-      if (!state) { alert('Please select your state first.'); return; }
-      const query = encodeURIComponent(state + ' voter registration requirements 2026');
-      window.open('https://www.vote.org/state/' + state.toLowerCase().replace(/\s+/g, '-') + '/', '_blank');
-    }
-
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-      });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
