@@ -12,79 +12,89 @@
       --ink: #0f0f0f; --ink-2: #3a3a3a; --ink-3: #6b6b6b;
       --rule: #d4d0c8; --bg: #f7f5f0; --white: #ffffff;
       --accent: #1a3a5c; --red: #b01c1c; --green: #1a5c3a;
+      --blue: #1a5ca0; --right: #a01a1a;
     }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; }
+
     .masthead { background: var(--white); border-bottom: 3px solid var(--ink); padding: 0 24px; }
     .masthead-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; padding: 16px 0 12px; gap: 16px; flex-wrap: wrap; }
-    .site-name { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; letter-spacing: -1px; color: var(--ink); line-height: 1; text-decoration: none; }
+    .site-name { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; letter-spacing: -1px; color: var(--ink); line-height: 1; text-decoration: none; display: block; }
     .site-tagline { font-size: 12px; color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
     nav { background: var(--ink); padding: 0 24px; }
     .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; }
     nav a { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 18px; display: block; white-space: nowrap; transition: color 0.15s, background 0.15s; }
     nav a:hover, nav a.active { color: #fff; background: rgba(255,255,255,0.08); }
+
     .page-header { background: var(--accent); color: white; padding: 48px 24px; }
     .page-header-inner { max-width: 900px; margin: 0 auto; }
     .page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; margin-bottom: 12px; }
     .page-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; line-height: 1.1; }
     .page-desc { font-size: 16px; opacity: 0.8; margin-top: 12px; max-width: 600px; }
-    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
 
-    /* SPECTRUM */
-    .spectrum-wrap { background: var(--white); border: 1px solid var(--rule); padding: 32px 24px; margin-bottom: 32px; }
-    .spectrum-label-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
-    .spectrum-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-    .label-left { color: #1a5ca0; }
-    .label-center { color: var(--ink-3); }
-    .label-right { color: #a01a1a; }
-    .spectrum-bar { position: relative; height: 12px; border-radius: 6px; background: linear-gradient(to right, #1a5ca0, #6a89b0, #aaa, #b08060, #a01a1a); margin-bottom: 40px; }
-    .outlet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-    .outlet-card { border: 1.5px solid var(--rule); background: var(--bg); padding: 14px 16px; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s; position: relative; }
-    .outlet-card:hover { border-color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .outlet-card.selected { border-color: var(--accent); background: var(--white); }
-    .outlet-name { font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 4px; }
-    .outlet-lean { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-    .lean-left { color: #1a5ca0; }
-    .lean-center-left { color: #4a78a0; }
-    .lean-center { color: var(--ink-3); }
-    .lean-center-right { color: #a07040; }
-    .lean-right { color: #a01a1a; }
-    .outlet-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; vertical-align: middle; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+
+    /* SPECTRUM CHART */
+    .chart-wrap { background: var(--white); border: 1px solid var(--rule); overflow: hidden; margin-bottom: 32px; }
+    .chart-header { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 2px solid var(--rule); }
+    .chart-col-head { padding: 14px 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .head-left { color: var(--blue); background: #edf2f8; border-right: 1px solid var(--rule); }
+    .head-center { color: var(--ink-3); background: #f7f5f0; border-right: 1px solid var(--rule); text-align: center; }
+    .head-right { color: var(--right); background: #f8efef; text-align: right; }
+
+    .chart-body { display: grid; grid-template-columns: 1fr 1fr 1fr; min-height: 300px; }
+    .chart-col { padding: 20px; }
+    .col-left { background: #edf2f8; border-right: 1px solid var(--rule); }
+    .col-center { background: #f7f5f0; border-right: 1px solid var(--rule); }
+    .col-right { background: #f8efef; }
+
+    .sublabel { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin: 16px 0 8px; padding-bottom: 4px; border-bottom: 1px dashed var(--rule); }
+    .sublabel:first-child { margin-top: 0; }
+
+    .outlet-card { border: 1px solid var(--rule); background: var(--white); padding: 11px 14px; cursor: pointer; transition: border-color 0.15s, transform 0.1s; margin-bottom: 8px; }
+    .outlet-card:hover { border-color: var(--ink); transform: translateY(-1px); }
+    .outlet-card.selected { border-color: var(--accent); border-width: 2px; }
+    .outlet-name { font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 2px; }
+    .outlet-sub { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; display: flex; align-items: center; gap: 5px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .lean-left { color: #1a5ca0; } .lean-center-left { color: #4a78a0; }
+    .lean-center { color: #888; } .lean-center-right { color: #a07040; } .lean-right { color: #a01a1a; }
 
     /* DETAIL PANEL */
-    .detail-panel { background: var(--white); border: 1px solid var(--rule); padding: 28px; margin-bottom: 32px; display: none; }
+    .detail-panel { background: var(--white); border: 1px solid var(--rule); border-left: 4px solid var(--accent); padding: 28px; margin-bottom: 32px; display: none; }
     .detail-panel.visible { display: block; }
-    .detail-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; }
-    .detail-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; }
-    .detail-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
-    .badge { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
+    .detail-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; }
+    .detail-name { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; }
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+    .badge { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; }
     .badge-lean { background: #e8eef5; color: var(--accent); }
-    .badge-rating { background: #e8f5ee; color: var(--green); }
-    .badge-rating.mixed { background: #fff8e0; color: #7a4e00; }
-    .badge-rating.poor { background: #fde8e8; color: var(--red); }
-    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .detail-stat { }
-    .detail-stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
-    .detail-stat-value { font-size: 15px; color: var(--ink); line-height: 1.5; }
-    .politifact-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 10px 18px; background: var(--accent); color: white; text-decoration: none; font-size: 14px; font-weight: 600; transition: background 0.15s; }
-    .politifact-link:hover { background: #0f2840; }
-    .close-btn { background: none; border: 1.5px solid var(--rule); padding: 6px 12px; cursor: pointer; font-size: 13px; color: var(--ink-3); font-family: 'Inter', sans-serif; transition: border-color 0.15s; }
+    .badge-good { background: #e8f5ee; color: var(--green); }
+    .badge-mixed { background: #fff8e0; color: #7a4e00; }
+    .badge-poor { background: #fde8e8; color: var(--red); }
+    .close-btn { background: none; border: 1px solid var(--rule); padding: 6px 14px; cursor: pointer; font-size: 13px; color: var(--ink-3); font-family: 'Inter', sans-serif; transition: all 0.15s; flex-shrink: 0; }
     .close-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .detail-stat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
+    .detail-stat-value { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+    .politifact-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; background: var(--accent); color: white; text-decoration: none; font-size: 14px; font-weight: 600; transition: background 0.15s; }
+    .politifact-link:hover { background: #0f2840; }
+    .no-link { font-size: 13px; color: var(--ink-3); font-style: italic; margin-top: 12px; }
 
     /* EXPLAINER */
-    .explainer { margin-bottom: 40px; }
     .explainer h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
     .explainer p { font-size: 16px; color: var(--ink-2); line-height: 1.75; margin-bottom: 14px; }
 
-    footer { background: var(--ink); color: #aaa; padding: 32px 24px; font-size: 13px; }
+    footer { background: var(--ink); color: #aaa; padding: 32px 24px; margin-top: 48px; font-size: 13px; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .footer-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; }
-    .footer-links { display: flex; gap: 20px; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { color: #aaa; text-decoration: none; }
     .footer-links a:hover { color: white; }
 
-    @media (max-width: 600px) {
+    @media (max-width: 680px) {
+      .chart-header, .chart-body { grid-template-columns: 1fr; }
+      .col-left, .col-center { border-right: none; border-bottom: 1px solid var(--rule); }
+      .head-left, .head-center { border-right: none; border-bottom: 1px solid var(--rule); }
       .detail-grid { grid-template-columns: 1fr; }
-      .outlet-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -102,8 +112,8 @@
 <nav>
   <div class="nav-inner">
     <a href="/">Home</a>
-    <a href="/vote.html">How to Vote</a>
-    <a href="/issues.html">The Issues</a>
+    <a href="/#register">How to Vote</a>
+    <a href="/#issues">The Issues</a>
     <a href="/news.html">News</a>
     <a href="/opinions.html">Opinions</a>
     <a href="/media.html" class="active">Media Bias</a>
@@ -115,64 +125,71 @@
   <div class="page-header-inner">
     <div class="page-eyebrow">Media literacy</div>
     <h1 class="page-title">Where does your news come from?</h1>
-    <p class="page-desc">Every outlet has a perspective. This chart shows where major news sources fall on the political spectrum — and how accurate their reporting tends to be.</p>
+    <p class="page-desc">Every outlet has a perspective. This chart shows where major news sources fall on the political spectrum — click any outlet to learn more about its accuracy and reporting style.</p>
   </div>
 </div>
 
 <div class="container">
 
-  <!-- SPECTRUM + OUTLETS -->
-  <div class="spectrum-wrap">
-    <div class="spectrum-label-row">
-      <span class="spectrum-label label-left">← Left</span>
-      <span class="spectrum-label label-center">Center</span>
-      <span class="spectrum-label label-right">Right →</span>
+  <div class="chart-wrap">
+    <div class="chart-header">
+      <div class="chart-col-head head-left">← Left</div>
+      <div class="chart-col-head head-center">Center</div>
+      <div class="chart-col-head head-right">Right →</div>
     </div>
-    <div class="spectrum-bar"></div>
-    <div class="outlet-grid" id="outlet-grid"></div>
+    <div class="chart-body">
+
+      <!-- LEFT COLUMN -->
+      <div class="chart-col col-left" id="col-left"></div>
+
+      <!-- CENTER COLUMN -->
+      <div class="chart-col col-center" id="col-center"></div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="chart-col col-right" id="col-right"></div>
+
+    </div>
   </div>
 
   <!-- DETAIL PANEL -->
   <div class="detail-panel" id="detail-panel">
-    <div class="detail-header">
+    <div class="detail-top">
       <div>
         <div class="detail-name" id="d-name"></div>
-        <div class="detail-badges">
+        <div class="badges">
           <span class="badge badge-lean" id="d-lean"></span>
-          <span class="badge badge-rating" id="d-rating"></span>
+          <span class="badge" id="d-rating"></span>
         </div>
       </div>
       <button class="close-btn" onclick="closeDetail()">Close ✕</button>
     </div>
     <div class="detail-grid">
-      <div class="detail-stat">
+      <div>
         <div class="detail-stat-label">Bias rating</div>
-        <div class="detail-stat-value" id="d-bias-desc"></div>
+        <div class="detail-stat-value" id="d-bias"></div>
       </div>
-      <div class="detail-stat">
+      <div>
         <div class="detail-stat-label">Factual reporting</div>
         <div class="detail-stat-value" id="d-factual"></div>
       </div>
-      <div class="detail-stat">
+      <div>
         <div class="detail-stat-label">Best for</div>
         <div class="detail-stat-value" id="d-bestfor"></div>
       </div>
-      <div class="detail-stat">
+      <div>
         <div class="detail-stat-label">Watch out for</div>
         <div class="detail-stat-value" id="d-watchout"></div>
       </div>
     </div>
-    <a class="politifact-link" id="d-politifact" href="#" target="_blank" rel="noopener">
-      View PolitiFact ratings ↗
-    </a>
+    <div id="d-link-wrap"></div>
   </div>
 
   <!-- EXPLAINER -->
   <div class="explainer">
     <h2>How to read this chart</h2>
-    <p>Media bias doesn't mean a source is wrong — it means that source tends to cover certain stories more than others, frame issues in particular ways, or editorialize more than it reports. Almost every major outlet has some lean.</p>
-    <p>The ratings here draw from AllSides, Ad Fontes Media, and Media Bias/Fact Check — three independent organizations that analyze media bias. They don't always agree perfectly, and bias can shift over time, but the broad placements are widely accepted.</p>
-    <p>The best habit is to read across the spectrum. If the same story is covered the same way by sources on both sides, it's probably accurate. If the framing differs sharply, that's a signal to dig deeper.</p>
+    <p>Media bias doesn't mean a source is wrong — it means that outlet tends to cover certain stories more than others, frame issues in particular ways, or editorialize more than it reports. Almost every major outlet has some lean.</p>
+    <p>The ratings here draw from AllSides, Ad Fontes Media, and Media Bias/Fact Check — three independent organizations that analyze media bias. They don't always agree perfectly, and bias can shift over time, but the broad placements here are widely accepted.</p>
+    <p>The best habit is to read across the spectrum. If the same story is covered the same way by outlets on both sides, it's probably accurate. If the framing differs sharply, that's your signal to dig deeper.</p>
   </div>
 
 </div>
@@ -184,9 +201,9 @@
       <div style="margin-top:4px;">Nonpartisan civic education. No ads, no agenda.</div>
     </div>
     <div class="footer-links">
-      <a href="/vote.html">How to vote</a>
-      <a href="/issues.html">Issues</a>
+      <a href="/">Home</a>
       <a href="/news.html">News</a>
+      <a href="/issues.html">Issues</a>
       <a href="/about.html">About</a>
     </div>
   </div>
@@ -194,57 +211,201 @@
 
 <script>
 const outlets = [
-  { name: "MSNBC", lean: "Left", leanClass: "lean-left", dot: "#1a5ca0", biasDesc: "Strongly left-leaning in opinion coverage; news segments more balanced.", factual: "Generally high, though opinion shows mix commentary with news.", bestFor: "Progressive political analysis and opinion.", watchOut: "Heavy editorial slant, especially in prime-time opinion shows.", politifact: "https://www.politifact.com/msnbc/", rating: "High factual", ratingClass: "" },
-  { name: "NPR", lean: "Lean Left", leanClass: "lean-center-left", dot: "#4a78a0", biasDesc: "Slightly left-leaning in story selection; generally straight news reporting.", factual: "Very high — consistently rated among most accurate major outlets.", bestFor: "In-depth reporting, policy explainers, international news.", watchOut: "Story selection can skew toward progressive issues.", politifact: "https://www.politifact.com/", rating: "Very High factual", ratingClass: "" },
-  { name: "New York Times", lean: "Lean Left", leanClass: "lean-center-left", dot: "#4a78a0", biasDesc: "News reporting is largely straight; opinion section is clearly left-leaning.", factual: "Very high for news reporting. Corrections published prominently.", bestFor: "Breaking news, investigations, international coverage.", watchOut: "Opinion/news distinction can blur. Subscriber-driven editorial choices.", politifact: "https://www.politifact.com/factchecks/list/?speaker=new-york-times", rating: "Very High factual", ratingClass: "" },
-  { name: "Washington Post", lean: "Lean Left", leanClass: "lean-center-left", dot: "#4a78a0", biasDesc: "Moderate left lean; strong investigative journalism heritage.", factual: "High factual — Pulitzer-winning investigations, rigorous standards.", bestFor: "Political investigations, government accountability reporting.", watchOut: "Heavy focus on Washington D.C. politics; can feel inside-baseball.", politifact: "https://www.politifact.com/", rating: "High factual", ratingClass: "" },
-  { name: "CNN", lean: "Lean Left", leanClass: "lean-center-left", dot: "#4a78a0", biasDesc: "Moderate left lean; significant variation between anchors and shows.", factual: "Generally high, though some high-profile errors have occurred.", bestFor: "Breaking news coverage, live events.", watchOut: "Heavy punditry; can sensationalize. Opinion mixed with news.", politifact: "https://www.politifact.com/cnn/", rating: "High factual", ratingClass: "" },
-  { name: "AP News", lean: "Center", leanClass: "lean-center", dot: "#888", biasDesc: "One of the most centrist major outlets. Wire service model minimizes bias.", factual: "Very high — AP sets standards many outlets follow.", bestFor: "Straight news, wire reports, international events.", watchOut: "Can be dry; doesn't always provide full context.", politifact: "https://www.politifact.com/", rating: "Very High factual", ratingClass: "" },
-  { name: "Reuters", lean: "Center", leanClass: "lean-center", dot: "#888", biasDesc: "Highly centrist international wire service. Minimal opinionating.", factual: "Very high — widely regarded as one of the most reliable sources.", bestFor: "International news, financial reporting, breaking events.", watchOut: "Very brief articles; may need supplementary sources for context.", politifact: "https://www.politifact.com/", rating: "Very High factual", ratingClass: "" },
-  { name: "BBC", lean: "Center", leanClass: "lean-center", dot: "#888", biasDesc: "Center to slight left on US issues; highly balanced on UK/international.", factual: "Very high — public broadcaster with strict editorial standards.", bestFor: "International perspective on US politics, world news.", watchOut: "UK-centric framing occasionally misses American nuance.", politifact: "https://www.politifact.com/", rating: "Very High factual", ratingClass: "" },
-  { name: "USA Today", lean: "Center", leanClass: "lean-center", dot: "#888", biasDesc: "Generally centrist with slight left lean on some social issues.", factual: "High — runs a prominent fact-check operation.", bestFor: "General news, easy-to-read national stories.", watchOut: "Can prioritize accessibility over depth.", politifact: "https://www.politifact.com/", rating: "High factual", ratingClass: "" },
-  { name: "Wall Street Journal", lean: "Lean Right", leanClass: "lean-center-right", dot: "#a07040", biasDesc: "News section is fairly centrist; editorial/opinion page is strongly right.", factual: "High for news reporting. Opinion section is explicitly conservative.", bestFor: "Business/financial news, economic policy reporting.", watchOut: "Opinion section is very conservative — keep it separate from news.", politifact: "https://www.politifact.com/", rating: "High factual", ratingClass: "" },
-  { name: "Fox News", lean: "Right", leanClass: "lean-right", dot: "#a01a1a", biasDesc: "Strongly right-leaning, especially in prime-time opinion programming.", factual: "Mixed — news division more accurate than opinion shows.", bestFor: "Understanding conservative viewpoints and framing.", watchOut: "Opinion shows frequently rated low on factual accuracy by fact-checkers.", politifact: "https://www.politifact.com/fox/", rating: "Mixed factual", ratingClass: "mixed" },
-  { name: "New York Post", lean: "Right", leanClass: "lean-right", dot: "#a01a1a", biasDesc: "Right-leaning tabloid with strong conservative editorial stance.", factual: "Mixed — has broken real stories but also published inaccurate reports.", bestFor: "New York local news; understanding right-leaning tabloid framing.", watchOut: "Sensationalist headlines; editorial bias runs through news coverage.", politifact: "https://www.politifact.com/", rating: "Mixed factual", ratingClass: "mixed" },
+  // LEFT
+  {
+    col: "left", sublabel: "Left",
+    name: "MSNBC", lean: "Left", leanClass: "lean-left", dot: "#1a5ca0",
+    bias: "Strongly left-leaning, especially in prime-time opinion shows. News segments are more balanced but still tilt left in story selection.",
+    factual: "Generally high for straight news. Opinion programming frequently mixes commentary with factual claims.",
+    bestFor: "Progressive political analysis and opinion coverage.",
+    watchOut: "Heavy editorial slant. Opinion and news are often blurred, especially in evening programming.",
+    politifact: null
+  },
+  {
+    col: "left", sublabel: "Left",
+    name: "The Guardian", lean: "Left", leanClass: "lean-left", dot: "#1a5ca0",
+    bias: "Left-leaning British outlet with strong progressive editorial stance on US politics.",
+    factual: "High factual accuracy. Strong international reporting with clear progressive framing.",
+    bestFor: "International news, environmental coverage, progressive commentary.",
+    watchOut: "UK perspective can misread American political nuance. Opinion-heavy on social issues.",
+    politifact: null
+  },
+  {
+    col: "left", sublabel: "Lean Left",
+    name: "NPR", lean: "Lean Left", leanClass: "lean-center-left", dot: "#4a78a0",
+    bias: "Slightly left-leaning in story selection and framing. News reporting is generally straight.",
+    factual: "Very high — consistently rated among the most accurate major outlets.",
+    bestFor: "In-depth reporting, policy explainers, long-form journalism, international news.",
+    watchOut: "Story selection can skew toward progressive issues. Limited conservative perspective in guests.",
+    politifact: null
+  },
+  {
+    col: "left", sublabel: "Lean Left",
+    name: "New York Times", lean: "Lean Left", leanClass: "lean-center-left", dot: "#4a78a0",
+    bias: "News reporting is largely centrist; opinion section is clearly left-leaning. Strong investigative tradition.",
+    factual: "Very high for news. Publishes prominent corrections. Pulitzer-winning investigations.",
+    bestFor: "Breaking news, investigations, international coverage, cultural reporting.",
+    watchOut: "Opinion/news distinction can blur. Subscriber-driven editorial priorities.",
+    politifact: null
+  },
+  {
+    col: "left", sublabel: "Lean Left",
+    name: "Washington Post", lean: "Lean Left", leanClass: "lean-center-left", dot: "#4a78a0",
+    bias: "Moderate left lean with a strong investigative journalism heritage.",
+    factual: "High — rigorous editorial standards, Pulitzer-winning accountability reporting.",
+    bestFor: "Political investigations, government accountability, national security reporting.",
+    watchOut: "Heavy Washington D.C. focus. Can feel inside-baseball for non-political readers.",
+    politifact: null
+  },
+  {
+    col: "left", sublabel: "Lean Left",
+    name: "CNN", lean: "Lean Left", leanClass: "lean-center-left", dot: "#4a78a0",
+    bias: "Moderate left lean with significant variation between anchors and programs.",
+    factual: "Generally high, though some high-profile errors have occurred.",
+    bestFor: "Breaking news, live event coverage, politics.",
+    watchOut: "Heavy punditry. Can sensationalize. Opinion and news are frequently blended.",
+    politifact: null
+  },
+
+  // CENTER
+  {
+    col: "center", sublabel: "Center",
+    name: "AP News", lean: "Center", leanClass: "lean-center", dot: "#888",
+    bias: "One of the most centrist major outlets. Wire service model minimizes editorial bias.",
+    factual: "Very high — AP sets the factual standard many other outlets follow.",
+    bestFor: "Straight news, wire reports, breaking events, international news.",
+    watchOut: "Can be dry and brief. Doesn't always provide full political context.",
+    politifact: null
+  },
+  {
+    col: "center", sublabel: "Center",
+    name: "Reuters", lean: "Center", leanClass: "lean-center", dot: "#888",
+    bias: "Highly centrist international wire service. Minimal opinionating in news coverage.",
+    factual: "Very high — widely regarded as one of the most reliable sources globally.",
+    bestFor: "International news, financial and business reporting, breaking events.",
+    watchOut: "Very brief articles. May need supplementary sources for full context.",
+    politifact: null
+  },
+  {
+    col: "center", sublabel: "Center",
+    name: "BBC", lean: "Center", leanClass: "lean-center", dot: "#888",
+    bias: "Center to slight left on US issues. Highly balanced on UK and international news.",
+    factual: "Very high — public broadcaster with strict editorial standards.",
+    bestFor: "International perspective on US politics, world news, science reporting.",
+    watchOut: "UK-centric framing occasionally misses American political nuance.",
+    politifact: null
+  },
+  {
+    col: "center", sublabel: "Center",
+    name: "USA Today", lean: "Center", leanClass: "lean-center", dot: "#888",
+    bias: "Generally centrist with slight left lean on some social issues.",
+    factual: "High — runs a prominent fact-checking operation.",
+    bestFor: "General national news, accessible writing, broad topic coverage.",
+    watchOut: "Can prioritize accessibility and brevity over depth and nuance.",
+    politifact: null
+  },
+
+  // RIGHT
+  {
+    col: "right", sublabel: "Lean Right",
+    name: "Wall Street Journal", lean: "Lean Right", leanClass: "lean-center-right", dot: "#a07040",
+    bias: "News section is fairly centrist. Editorial and opinion page is strongly conservative.",
+    factual: "High for news reporting. Opinion section is explicitly and unapologetically conservative.",
+    bestFor: "Business and financial news, economic policy, national reporting.",
+    watchOut: "Keep opinion and news sections separate — they reflect very different editorial stances.",
+    politifact: null
+  },
+  {
+    col: "right", sublabel: "Right",
+    name: "Fox News", lean: "Right", leanClass: "lean-right", dot: "#a01a1a",
+    bias: "Strongly right-leaning, especially in prime-time opinion programming. Daytime news is more balanced.",
+    factual: "Mixed — daytime news division is more accurate. Opinion shows have been rated poorly by multiple fact-checkers.",
+    bestFor: "Understanding conservative viewpoints, framing, and priorities.",
+    watchOut: "Opinion shows frequently rated low on factual accuracy. News and opinion are often blurred.",
+    politifact: null
+  },
+  {
+    col: "right", sublabel: "Right",
+    name: "New York Post", lean: "Right", leanClass: "lean-right", dot: "#a01a1a",
+    bias: "Right-leaning tabloid with a strong conservative editorial stance throughout its coverage.",
+    factual: "Mixed — has broken real stories but has also published inaccurate or misleading reports.",
+    bestFor: "New York local news, understanding right-leaning tabloid framing.",
+    watchOut: "Sensationalist headlines. Editorial bias runs through news coverage, not just opinion.",
+    politifact: null
+  },
+  {
+    col: "right", sublabel: "Right",
+    name: "The Daily Wire", lean: "Right", leanClass: "lean-right", dot: "#a01a1a",
+    bias: "Strongly right-leaning conservative media outlet. Opinion-heavy throughout.",
+    factual: "Mixed to low — rated poorly on factual accuracy by multiple independent organizations.",
+    bestFor: "Understanding conservative commentary and opinion.",
+    watchOut: "Opinion frequently presented as straight news. Low factual accuracy ratings.",
+    politifact: null
+  },
 ];
 
-const grid = document.getElementById('outlet-grid');
-const panel = document.getElementById('detail-panel');
-let selected = null;
-
-outlets.forEach((o, i) => {
-  const card = document.createElement('div');
-  card.className = 'outlet-card';
-  card.innerHTML = `<div class="outlet-name">${o.name}</div><div class="outlet-lean ${o.leanClass}"><span class="outlet-dot" style="background:${o.dot}"></span>${o.lean}</div>`;
-  card.addEventListener('click', () => {
-    if (selected !== null) grid.children[selected].classList.remove('selected');
-    selected = i;
-    card.classList.add('selected');
-    showDetail(o);
+function renderCol(colId, colKey) {
+  const col = document.getElementById(colId);
+  const items = outlets.filter(o => o.col === colKey);
+  const sublabels = [...new Set(items.map(o => o.sublabel))];
+  sublabels.forEach(sub => {
+    const label = document.createElement('div');
+    label.className = 'sublabel';
+    label.textContent = sub;
+    col.appendChild(label);
+    items.filter(o => o.sublabel === sub).forEach((o, i) => {
+      const card = document.createElement('div');
+      card.className = 'outlet-card';
+      card.dataset.id = outlets.indexOf(o);
+      card.innerHTML = `<div class="outlet-name">${o.name}</div><div class="outlet-sub ${o.leanClass}"><span class="dot" style="background:${o.dot}"></span>${o.lean}</div>`;
+      card.addEventListener('click', () => showDetail(o, card));
+      col.appendChild(card);
+    });
   });
-  grid.appendChild(card);
-});
+}
 
-function showDetail(o) {
+renderCol('col-left', 'left');
+renderCol('col-center', 'center');
+renderCol('col-right', 'right');
+
+let selectedCard = null;
+
+function showDetail(o, card) {
+  if (selectedCard) selectedCard.classList.remove('selected');
+  selectedCard = card;
+  card.classList.add('selected');
+
   document.getElementById('d-name').textContent = o.name;
   document.getElementById('d-lean').textContent = o.lean;
-  document.getElementById('d-rating').textContent = o.rating;
-  document.getElementById('d-rating').className = 'badge badge-rating ' + o.ratingClass;
-  document.getElementById('d-bias-desc').textContent = o.biasDesc;
+  document.getElementById('d-bias').textContent = o.bias;
   document.getElementById('d-factual').textContent = o.factual;
   document.getElementById('d-bestfor').textContent = o.bestFor;
   document.getElementById('d-watchout').textContent = o.watchOut;
-  document.getElementById('d-politifact').href = o.politifact;
+
+  const ratingEl = document.getElementById('d-rating');
+  const factual = o.factual.toLowerCase();
+  if (factual.includes('very high')) { ratingEl.textContent = 'Very high factual'; ratingEl.className = 'badge badge-good'; }
+  else if (factual.includes('high')) { ratingEl.textContent = 'High factual'; ratingEl.className = 'badge badge-good'; }
+  else if (factual.includes('mixed')) { ratingEl.textContent = 'Mixed factual'; ratingEl.className = 'badge badge-mixed'; }
+  else { ratingEl.textContent = 'Low factual'; ratingEl.className = 'badge badge-poor'; }
+
+  const linkWrap = document.getElementById('d-link-wrap');
+  if (o.politifact) {
+    linkWrap.innerHTML = `<a class="politifact-link" href="${o.politifact}" target="_blank" rel="noopener">View PolitiFact ratings ↗</a>`;
+  } else {
+    linkWrap.innerHTML = `<p class="no-link">PolitiFact link coming soon.</p>`;
+  }
+
+  const panel = document.getElementById('detail-panel');
   panel.classList.add('visible');
   panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function closeDetail() {
-  panel.classList.remove('visible');
-  if (selected !== null) grid.children[selected].classList.remove('selected');
-  selected = null;
+  document.getElementById('detail-panel').classList.remove('visible');
+  if (selectedCard) selectedCard.classList.remove('selected');
+  selectedCard = null;
 }
 </script>
-
 </body>
 </html>
