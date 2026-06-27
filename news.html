@@ -226,7 +226,7 @@
 document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
 // RSS → JSON proxy (free, no key needed)
-const PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
+const PROXY = 'https://rss-proxy.ryan-yarlagadda6512.workers.dev/?url=';
 
 // Feed definitions: each zone gets a search-filtered BBC/AP/Reuters RSS
 const feeds = {
@@ -289,7 +289,7 @@ function loadFeed(containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = '<div class="loading"><span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span></div>';
 
-  fetch(PROXY + encodeURIComponent(feed.url) + '&count=30')
+  fetch(PROXY + encodeURIComponent(feed.url))
     .then(r => r.json())
     .then(data => {
       if (!data.items) throw new Error('No items');
