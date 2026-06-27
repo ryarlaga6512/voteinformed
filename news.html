@@ -33,22 +33,19 @@
     .source-note { font-size: 12px; color: var(--ink-3); text-align: right; max-width: 260px; line-height: 1.5; }
     .source-note strong { color: var(--ink); }
 
-    /* CONTINENT TABS */
     .continent-tabs { background: var(--white); border-bottom: 2px solid var(--rule); padding: 0 24px; position: sticky; top: 0; z-index: 10; }
-    .tabs-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; gap: 0; }
-    .tab { padding: 12px 20px; font-size: 13px; font-weight: 600; color: var(--ink-3); cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.15s; white-space: nowrap; letter-spacing: 0.03em; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Inter', sans-serif; }
+    .tabs-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; }
+    .tab { padding: 12px 20px; font-size: 13px; font-weight: 600; color: var(--ink-3); cursor: pointer; border-bottom: 3px solid transparent; border-top: none; border-left: none; border-right: none; transition: all 0.15s; white-space: nowrap; letter-spacing: 0.03em; background: none; font-family: 'Inter', sans-serif; }
     .tab:hover { color: var(--ink); }
     .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
 
-    /* CONTINENT SECTION */
     .continent-section { display: none; }
     .continent-section.active { display: block; }
 
-    /* ZONE */
     .zone { margin-bottom: 48px; }
-    .zone-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+    .zone-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); flex-wrap: wrap; }
     .zone-flag { font-size: 22px; }
     .zone-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; }
     .zone-heat { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; margin-left: auto; }
@@ -57,31 +54,26 @@
     .heat-elevated { background: #fff8e0; color: var(--amber); }
     .heat-watch { background: #e8eef5; color: var(--accent); }
 
-    /* NEWS GRID */
     .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
     .news-card { background: var(--white); border: 1px solid var(--rule); padding: 20px; transition: border-color 0.15s; text-decoration: none; display: block; }
     .news-card:hover { border-color: var(--ink); }
-    .news-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 8px; }
+    .news-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 8px; flex-wrap: wrap; }
     .news-source { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
     .news-date { font-size: 11px; color: var(--ink-3); }
-    .news-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
-    .news-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
-    .news-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; margin-top: 12px; }
-    .tag-politics { background: #e8eef5; color: var(--accent); }
-    .tag-conflict { background: #fde8e8; color: var(--red); }
-    .tag-economy { background: #fff8e0; color: var(--amber); }
-    .tag-diplomacy { background: #e8f5ee; color: var(--green); }
-    .tag-leadership { background: #f0e8f5; color: #5a1a7a; }
+    .news-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
+    .news-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-    /* PLACEHOLDER */
-    .placeholder-card { background: var(--white); border: 1px dashed var(--rule); padding: 24px; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 120px; }
-    .placeholder-text { font-size: 13px; color: var(--ink-3); line-height: 1.6; }
-    .placeholder-text strong { display: block; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+    .loading { text-align: center; padding: 40px; color: var(--ink-3); font-size: 14px; }
+    .loading-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin: 0 3px; animation: bounce 1.2s infinite; }
+    .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { 0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
 
-    /* HOW WE CURATE */
-    .curation-note { background: #e8eef5; border: 1px solid #c4d4e8; padding: 20px 24px; margin-bottom: 32px; display: flex; gap: 14px; align-items: flex-start; }
-    .curation-icon { font-size: 20px; flex-shrink: 0; }
-    .curation-text { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+    .error-card { background: #fde8e8; border: 1px solid #f5c0c0; padding: 16px 20px; font-size: 14px; color: var(--red); }
+
+    .curation-note { background: #e8eef5; border: 1px solid #c4d4e8; padding: 16px 20px; margin-bottom: 32px; display: flex; gap: 12px; align-items: flex-start; }
+    .curation-text { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
     .curation-text strong { color: var(--ink); }
 
     footer { background: var(--ink); color: #aaa; padding: 32px 24px; margin-top: 48px; font-size: 13px; }
@@ -91,9 +83,7 @@
     .footer-links a { color: #aaa; text-decoration: none; }
     .footer-links a:hover { color: white; }
 
-    @media (max-width: 680px) {
-      .news-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 680px) { .news-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -124,331 +114,95 @@
   <div class="page-header-inner">
     <div>
       <h1 class="page-title">World Headlines</h1>
-      <p class="page-subtitle">Curated from center-leaning sources. Updated regularly.</p>
+      <p class="page-subtitle">Live from AP News, Reuters, and BBC. Updated automatically.</p>
     </div>
-    <div class="source-note"><strong>Sources:</strong> AP News, Reuters, BBC, The Guardian, NPR — selected for factual accuracy and minimal editorial bias.</div>
+    <div class="source-note"><strong>Sources:</strong> AP News, Reuters, BBC — selected for factual accuracy and minimal editorial bias.</div>
   </div>
 </div>
 
-<!-- CONTINENT TABS -->
 <div class="continent-tabs">
   <div class="tabs-inner">
-    <button class="tab active" onclick="switchTab('americas')">🌎 Americas</button>
-    <button class="tab" onclick="switchTab('europe')">🌍 Europe</button>
-    <button class="tab" onclick="switchTab('middleeast')">🌍 Middle East</button>
-    <button class="tab" onclick="switchTab('asia')">🌏 Asia</button>
-    <button class="tab" onclick="switchTab('africa')">🌍 Africa</button>
-    <button class="tab" onclick="switchTab('oceania')">🌏 Oceania</button>
+    <button class="tab active" onclick="switchTab('americas', this)">🌎 Americas</button>
+    <button class="tab" onclick="switchTab('europe', this)">🌍 Europe</button>
+    <button class="tab" onclick="switchTab('middleeast', this)">🌍 Middle East</button>
+    <button class="tab" onclick="switchTab('asia', this)">🌏 Asia</button>
+    <button class="tab" onclick="switchTab('africa', this)">🌍 Africa</button>
+    <button class="tab" onclick="switchTab('oceania', this)">🌏 Oceania</button>
   </div>
 </div>
 
 <div class="container">
-
   <div class="curation-note">
-    <div class="curation-icon">📌</div>
-    <div class="curation-text"><strong>How we curate:</strong> Every article linked here comes from a center-rated outlet (AP, Reuters, BBC, NPR, or similar). Articles are hand-selected for factual reporting, not engagement. Heat levels reflect the severity of ongoing conflict, political instability, or humanitarian concern in each region — not how much media coverage it's getting.</div>
+    <span>📌</span>
+    <div class="curation-text"><strong>How we curate:</strong> Articles are pulled live from AP News, Reuters, and BBC RSS feeds — center-rated outlets selected for factual accuracy. Heat levels reflect the severity of ongoing conflict or instability in each region.</div>
   </div>
 
   <!-- AMERICAS -->
   <div class="continent-section active" id="tab-americas">
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇺🇸</span>
-        <h2 class="zone-title">United States</h2>
-        <span class="zone-heat heat-high">High</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Paste your first US article here</strong>Add a news-card block with the headline, source, and AP/Reuters/BBC link.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Paste your second US article here</strong>Suggested topics: Congress, elections, economy, Supreme Court.</div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🇺🇸</span><h2 class="zone-title">United States</h2><span class="zone-heat heat-high">High</span></div>
+      <div class="news-grid" id="feed-us"></div>
     </div>
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇲🇽</span>
-        <h2 class="zone-title">Mexico & Central America</h2>
-        <span class="zone-heat heat-elevated">Elevated</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>Cartel activity, migration, US-Mexico relations.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🌎</span><h2 class="zone-title">Latin America</h2><span class="zone-heat heat-elevated">Elevated</span></div>
+      <div class="news-grid" id="feed-latam"></div>
     </div>
-
-    <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇧🇷</span>
-        <h2 class="zone-title">South America</h2>
-        <span class="zone-heat heat-watch">Watch</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>Brazil politics, Venezuela, Colombia, Argentina economy.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- EUROPE -->
   <div class="continent-section" id="tab-europe">
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇺🇦</span>
-        <h2 class="zone-title">Ukraine & Russia</h2>
-        <span class="zone-heat heat-critical">Critical</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>War updates, peace negotiations, NATO involvement.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🇺🇦</span><h2 class="zone-title">Ukraine & Russia</h2><span class="zone-heat heat-critical">Critical</span></div>
+      <div class="news-grid" id="feed-ukraine"></div>
     </div>
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇪🇺</span>
-        <h2 class="zone-title">European Union</h2>
-        <span class="zone-heat heat-elevated">Elevated</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>EU elections, far-right rise, economic policy, NATO.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🇪🇺</span><h2 class="zone-title">European Union</h2><span class="zone-heat heat-elevated">Elevated</span></div>
+      <div class="news-grid" id="feed-eu"></div>
     </div>
-
-    <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇬🇧</span>
-        <h2 class="zone-title">United Kingdom</h2>
-        <span class="zone-heat heat-watch">Watch</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>UK politics, post-Brexit relations, economy.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- MIDDLE EAST -->
   <div class="continent-section" id="tab-middleeast">
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇵🇸</span>
-        <h2 class="zone-title">Gaza & Israel</h2>
-        <span class="zone-heat heat-critical">Critical</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>Conflict updates, ceasefire talks, humanitarian situation.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🇵🇸</span><h2 class="zone-title">Gaza & Israel</h2><span class="zone-heat heat-critical">Critical</span></div>
+      <div class="news-grid" id="feed-gaza"></div>
     </div>
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇮🇷</span>
-        <h2 class="zone-title">Iran & the Gulf</h2>
-        <span class="zone-heat heat-high">High</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>Nuclear program, sanctions, regional proxy conflicts.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🇮🇷</span><h2 class="zone-title">Iran & the Gulf</h2><span class="zone-heat heat-high">High</span></div>
+      <div class="news-grid" id="feed-iran"></div>
     </div>
-
-    <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇸🇾</span>
-        <h2 class="zone-title">Syria & Lebanon</h2>
-        <span class="zone-heat heat-high">High</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>Post-Assad Syria, reconstruction, Hezbollah, Lebanon crisis.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- ASIA -->
   <div class="continent-section" id="tab-asia">
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇨🇳</span>
-        <h2 class="zone-title">China & Taiwan</h2>
-        <span class="zone-heat heat-high">High</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>Taiwan Strait tensions, trade war, US-China relations.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🇨🇳</span><h2 class="zone-title">China & Taiwan</h2><span class="zone-heat heat-high">High</span></div>
+      <div class="news-grid" id="feed-china"></div>
     </div>
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇰🇵</span>
-        <h2 class="zone-title">Korean Peninsula</h2>
-        <span class="zone-heat heat-elevated">Elevated</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>North Korea weapons program, South Korea politics.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🇰🇵</span><h2 class="zone-title">Korean Peninsula</h2><span class="zone-heat heat-elevated">Elevated</span></div>
+      <div class="news-grid" id="feed-korea"></div>
     </div>
-
-    <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇮🇳</span>
-        <h2 class="zone-title">South Asia</h2>
-        <span class="zone-heat heat-elevated">Elevated</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>India-Pakistan tensions, Bangladesh, Sri Lanka.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- AFRICA -->
   <div class="continent-section" id="tab-africa">
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇸🇩</span>
-        <h2 class="zone-title">Sudan & the Horn of Africa</h2>
-        <span class="zone-heat heat-critical">Critical</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>Sudan civil war, humanitarian crisis, Ethiopia.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🇸🇩</span><h2 class="zone-title">Sudan & Horn of Africa</h2><span class="zone-heat heat-critical">Critical</span></div>
+      <div class="news-grid" id="feed-sudan"></div>
     </div>
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🌍</span>
-        <h2 class="zone-title">West Africa & the Sahel</h2>
-        <span class="zone-heat heat-high">High</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>Sahel coups, jihadist insurgency, French withdrawal.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🌍</span><h2 class="zone-title">West Africa & the Sahel</h2><span class="zone-heat heat-high">High</span></div>
+      <div class="news-grid" id="feed-sahel"></div>
     </div>
-
-    <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇿🇦</span>
-        <h2 class="zone-title">Southern Africa</h2>
-        <span class="zone-heat heat-watch">Watch</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>South Africa politics, DRC conflict, Mozambique.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- OCEANIA -->
   <div class="continent-section" id="tab-oceania">
-
     <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🇦🇺</span>
-        <h2 class="zone-title">Australia & New Zealand</h2>
-        <span class="zone-heat heat-watch">Watch</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>Australian politics, Pacific security, climate policy.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
+      <div class="zone-header"><span class="zone-flag">🇦🇺</span><h2 class="zone-title">Australia & Pacific</h2><span class="zone-heat heat-watch">Watch</span></div>
+      <div class="news-grid" id="feed-oceania"></div>
     </div>
-
-    <div class="zone">
-      <div class="zone-header">
-        <span class="zone-flag">🌏</span>
-        <h2 class="zone-title">Pacific Islands</h2>
-        <span class="zone-heat heat-watch">Watch</span>
-      </div>
-      <div class="news-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong>China influence, climate displacement, US military presence.</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-text"><strong>Article placeholder</strong></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 </div>
@@ -469,15 +223,107 @@
 </footer>
 
 <script>
-  document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-  function switchTab(id) {
-    document.querySelectorAll('.continent-section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('tab-' + id).classList.add('active');
-    event.target.classList.add('active');
+// RSS → JSON proxy (free, no key needed)
+const PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
+
+// Feed definitions: each zone gets a search-filtered BBC/AP/Reuters RSS
+const feeds = {
+  'feed-us':      { url: 'https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml', source: 'BBC News' },
+  'feed-latam':   { url: 'https://feeds.bbci.co.uk/news/world/latin_america/rss.xml', source: 'BBC News' },
+  'feed-ukraine': { url: 'https://feeds.bbci.co.uk/news/world/europe/rss.xml', source: 'BBC News' },
+  'feed-eu':      { url: 'https://feeds.bbci.co.uk/news/world/europe/rss.xml', source: 'BBC News' },
+  'feed-gaza':    { url: 'https://feeds.bbci.co.uk/news/world/middle_east/rss.xml', source: 'BBC News' },
+  'feed-iran':    { url: 'https://feeds.bbci.co.uk/news/world/middle_east/rss.xml', source: 'BBC News' },
+  'feed-china':   { url: 'https://feeds.bbci.co.uk/news/world/asia/rss.xml', source: 'BBC News' },
+  'feed-korea':   { url: 'https://feeds.bbci.co.uk/news/world/asia/rss.xml', source: 'BBC News' },
+  'feed-sudan':   { url: 'https://feeds.bbci.co.uk/news/world/africa/rss.xml', source: 'BBC News' },
+  'feed-sahel':   { url: 'https://feeds.bbci.co.uk/news/world/africa/rss.xml', source: 'BBC News' },
+  'feed-oceania': { url: 'https://feeds.bbci.co.uk/news/world/australia/rss.xml', source: 'BBC News' },
+};
+
+// Keywords to filter articles per zone
+const keywords = {
+  'feed-us':      ['united states', 'washington', 'congress', 'trump', 'biden', 'senate', 'white house', 'supreme court', 'election', 'american'],
+  'feed-latam':   ['mexico', 'brazil', 'colombia', 'venezuela', 'argentina', 'latin america', 'central america', 'cuba', 'chile', 'peru'],
+  'feed-ukraine': ['ukraine', 'russia', 'zelensky', 'putin', 'kyiv', 'moscow', 'nato', 'crimea', 'donbas'],
+  'feed-eu':      ['europe', 'european union', 'eu ', 'germany', 'france', 'spain', 'italy', 'poland', 'brussels', 'macron', 'scholz'],
+  'feed-gaza':    ['gaza', 'israel', 'hamas', 'west bank', 'netanyahu', 'ceasefire', 'palestin', 'idf'],
+  'feed-iran':    ['iran', 'saudi arabia', 'gulf', 'houthi', 'yemen', 'nuclear', 'tehran', 'riyadh'],
+  'feed-china':   ['china', 'taiwan', 'beijing', 'xi jinping', 'hong kong', 'south china sea', 'prc'],
+  'feed-korea':   ['north korea', 'south korea', 'kim jong', 'seoul', 'pyongyang', 'korean'],
+  'feed-sudan':   ['sudan', 'ethiopia', 'somalia', 'horn of africa', 'eritrea', 'djibouti', 'rsf'],
+  'feed-sahel':   ['sahel', 'mali', 'niger', 'burkina faso', 'nigeria', 'senegal', 'west africa', 'jihadist', 'coup'],
+  'feed-oceania': ['australia', 'new zealand', 'pacific', 'papua', 'fiji', 'solomon islands'],
+};
+
+function timeAgo(dateStr) {
+  const diff = Math.floor((Date.now() - new Date(dateStr)) / 60000);
+  if (diff < 60) return diff + 'm ago';
+  if (diff < 1440) return Math.floor(diff / 60) + 'h ago';
+  return Math.floor(diff / 1440) + 'd ago';
+}
+
+function renderCards(containerId, items, source) {
+  const container = document.getElementById(containerId);
+  if (!items || items.length === 0) {
+    container.innerHTML = '<div class="error-card">No recent articles found for this region. Check back soon.</div>';
+    return;
   }
-</script>
+  container.innerHTML = items.slice(0, 4).map(item => `
+    <a href="${item.link}" class="news-card" target="_blank" rel="noopener">
+      <div class="news-card-top">
+        <span class="news-source">${source}</span>
+        <span class="news-date">${timeAgo(item.pubDate)}</span>
+      </div>
+      <div class="news-title">${item.title}</div>
+      <div class="news-desc">${item.description ? item.description.replace(/<[^>]+>/g, '') : ''}</div>
+    </a>
+  `).join('');
+}
 
+function loadFeed(containerId) {
+  const feed = feeds[containerId];
+  const kws = keywords[containerId];
+  const container = document.getElementById(containerId);
+  container.innerHTML = '<div class="loading"><span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span></div>';
+
+  fetch(PROXY + encodeURIComponent(feed.url) + '&count=30')
+    .then(r => r.json())
+    .then(data => {
+      if (!data.items) throw new Error('No items');
+      const filtered = data.items.filter(item => {
+        const text = (item.title + ' ' + (item.description || '')).toLowerCase();
+        return kws.some(kw => text.includes(kw));
+      });
+      renderCards(containerId, filtered, feed.source);
+    })
+    .catch(() => {
+      container.innerHTML = '<div class="error-card">Could not load articles right now. Try refreshing the page.</div>';
+    });
+}
+
+// Load visible feeds on start
+const visibleFeeds = ['feed-us', 'feed-latam'];
+visibleFeeds.forEach(loadFeed);
+
+// Track which feeds have been loaded
+const loaded = new Set(visibleFeeds);
+
+function switchTab(id, btn) {
+  document.querySelectorAll('.continent-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+
+  // Load feeds for this tab if not already loaded
+  const tabFeeds = Object.keys(feeds).filter(f => {
+    const el = document.getElementById(f);
+    return el && document.getElementById('tab-' + id).contains(el);
+  });
+  tabFeeds.forEach(f => { if (!loaded.has(f)) { loadFeed(f); loaded.add(f); } });
+}
+</script>
 </body>
 </html>
