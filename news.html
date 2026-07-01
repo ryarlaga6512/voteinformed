@@ -5,83 +5,139 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News — VoteInformed</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #0f0f0f; --ink-2: #3a3a3a; --ink-3: #6b6b6b;
-      --rule: #d4d0c8; --bg: #f7f5f0; --white: #ffffff;
-      --accent: #1a3a5c; --red: #b01c1c; --green: #1a5c3a; --amber: #7a4e00;
-    }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; }
+    /* ============================================
+   VOTEINFORMED — SHARED DESIGN SYSTEM v2
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0d0d0d;
+  --ink-2: #333333;
+  --ink-3: #6b6b6b;
+  --ink-4: #999999;
+  --rule: #d8d4cc;
+  --rule-light: #eae7e0;
+  --bg: #f5f3ee;
+  --white: #ffffff;
+  --accent: #1a3a5c;
+  --accent-2: #2a5a8c;
+  --red: #b01c1c;
+  --red-light: #fdf0f0;
+  --green: #1a5c3a;
+  --amber: #7a4e00;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
 
-    .masthead { background: var(--white); border-bottom: 3px solid var(--ink); padding: 0 24px; }
-    .masthead-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 0 12px; gap: 16px; flex-wrap: wrap; }
-    .site-name { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; letter-spacing: -1px; color: var(--ink); line-height: 1; text-decoration: none; display: block; }
-    .site-tagline { font-size: 12px; color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
-    .masthead-date { font-size: 12px; color: var(--ink-3); }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    nav { background: var(--ink); padding: 0 24px; }
-    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; }
-    nav a { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 18px; display: block; white-space: nowrap; transition: color 0.15s, background 0.15s; }
-    nav a:hover, nav a.active { color: #fff; background: rgba(255,255,255,0.08); }
+/* ── MASTHEAD ── */
+.masthead { background: var(--white); padding: 0 24px; border-bottom: 1px solid var(--rule); }
+.masthead-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 18px 0 14px; gap: 16px; flex-wrap: wrap; }
+.masthead-left { display: flex; flex-direction: column; }
+.site-name { font-family: var(--serif); font-size: clamp(30px, 5vw, 52px); font-weight: 900; letter-spacing: -1.5px; color: var(--ink); line-height: 1; text-decoration: none; display: block; }
+.site-name span { color: var(--accent); }
+.site-tagline { font-size: 11px; color: var(--ink-4); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 5px; }
+.masthead-date { font-size: 11px; color: var(--ink-4); letter-spacing: 0.06em; text-align: right; }
+
+/* Triple rule bar */
+.masthead-rule { height: 5px; background: var(--ink); position: relative; }
+.masthead-rule::before { content: ''; position: absolute; top: -3px; left: 0; right: 0; height: 1px; background: var(--rule); }
+.masthead-rule::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--rule); }
+
+/* ── NAV ── */
+nav { background: var(--ink); padding: 0 24px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+nav a { color: #aaa; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 11px 18px; display: block; white-space: nowrap; transition: color 0.15s, background 0.15s; border-bottom: 2px solid transparent; }
+nav a:hover { color: #fff; }
+nav a.active { color: #fff; border-bottom-color: #6a9fd8; }
+
+/* ── BUTTONS ── */
+.btn { display: inline-block; padding: 11px 22px; font-size: 13px; font-weight: 600; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.15s; border: none; cursor: pointer; font-family: var(--sans); }
+.btn-primary { background: var(--ink); color: white; }
+.btn-primary:hover { background: var(--accent); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-outline:hover { background: var(--ink); color: white; }
+.btn-white { background: white; color: var(--accent); font-weight: 600; }
+.btn-white:hover { background: #e8eef5; }
+
+/* ── SECTION HEADERS ── */
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+.section-header-rule { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.section-title { font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+.section-rule-thick { height: 2px; background: var(--ink); }
+.section-rule-thin { height: 1px; background: var(--rule); }
+.section-more { font-size: 11px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.section-more:hover { color: var(--accent-2); }
+
+/* ── ZONE HEADERS (news page) ── */
+.zone-header { display: flex; align-items: stretch; gap: 0; margin-bottom: 24px; }
+.zone-flag-box { background: var(--ink); color: white; font-size: 20px; padding: 10px 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.zone-title-box { flex: 1; border: 2px solid var(--ink); border-left: none; padding: 8px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.zone-title { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.3px; }
+.zone-heat { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 10px; flex-shrink: 0; }
+.heat-critical { background: var(--red); color: white; }
+.heat-high { background: var(--ink); color: white; }
+.heat-elevated { background: var(--ink-3); color: white; }
+.heat-watch { background: var(--rule); color: var(--ink); }
+
+/* ── FOOTER ── */
+footer { background: var(--ink); color: #888; padding: 40px 24px 32px; margin-top: 64px; font-size: 13px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; padding-bottom: 24px; border-bottom: 1px solid #222; margin-bottom: 24px; }
+.footer-name { font-family: var(--serif); font-size: 22px; font-weight: 900; color: white; letter-spacing: -0.5px; margin-bottom: 4px; }
+.footer-name span { color: var(--accent-2); }
+.footer-tagline { font-size: 12px; color: #666; letter-spacing: 0.06em; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { color: #888; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; }
+.footer-links a:hover { color: white; }
+.footer-bottom { font-size: 11px; color: #444; letter-spacing: 0.04em; }
+
+@media (max-width: 768px) {
+  .zone-header { flex-direction: column; }
+  .zone-title-box { border-left: 2px solid var(--ink); }
+}
 
     .page-header { background: var(--white); border-bottom: 1px solid var(--rule); padding: 32px 24px; }
     .page-header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-    .page-title { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 60px); font-weight: 900; line-height: 1; letter-spacing: -1px; }
-    .page-subtitle { font-size: 14px; color: var(--ink-3); margin-top: 6px; }
-    .source-note { font-size: 12px; color: var(--ink-3); text-align: right; max-width: 260px; line-height: 1.5; }
+    .page-title { font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); font-weight: 900; line-height: 1; letter-spacing: -2px; }
+    .page-subtitle { font-size: 13px; color: var(--ink-4); margin-top: 6px; letter-spacing: 0.04em; }
+    .source-note { font-size: 12px; color: var(--ink-4); text-align: right; max-width: 240px; line-height: 1.55; }
     .source-note strong { color: var(--ink); }
 
-    .continent-tabs { background: var(--white); border-bottom: 2px solid var(--rule); padding: 0 24px; position: sticky; top: 0; z-index: 10; }
-    .tabs-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; }
-    .tab { padding: 12px 20px; font-size: 13px; font-weight: 600; color: var(--ink-3); cursor: pointer; border-bottom: 3px solid transparent; border-top: none; border-left: none; border-right: none; transition: all 0.15s; white-space: nowrap; letter-spacing: 0.03em; background: none; font-family: 'Inter', sans-serif; }
+    .continent-tabs { background: var(--white); border-bottom: 2px solid var(--ink); padding: 0 24px; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .tabs-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
+    .tabs-inner::-webkit-scrollbar { display: none; }
+    .tab { padding: 13px 20px; font-size: 11px; font-weight: 700; color: var(--ink-4); cursor: pointer; border-bottom: 3px solid transparent; border-top: none; border-left: none; border-right: none; transition: all 0.15s; white-space: nowrap; letter-spacing: 0.1em; text-transform: uppercase; background: none; font-family: var(--sans); margin-bottom: -2px; }
     .tab:hover { color: var(--ink); }
     .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
-
     .continent-section { display: none; }
     .continent-section.active { display: block; }
+    .zone { margin-bottom: 52px; }
 
-    .zone { margin-bottom: 48px; }
-    .zone-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); flex-wrap: wrap; }
-    .zone-flag { font-size: 22px; }
-    .zone-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; }
-    .zone-heat { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; margin-left: auto; }
-    .heat-critical { background: #fde8e8; color: var(--red); }
-    .heat-high { background: #fff3e0; color: #a05000; }
-    .heat-elevated { background: #fff8e0; color: var(--amber); }
-    .heat-watch { background: #e8eef5; color: var(--accent); }
+    .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .news-card { background: var(--white); padding: 20px; transition: background 0.15s; text-decoration: none; display: block; }
+    .news-card:hover { background: #faf8f4; }
+    .news-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 8px; }
+    .news-source { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .news-date { font-size: 11px; color: var(--ink-4); }
+    .news-title { font-family: var(--serif); font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
+    .news-desc { font-size: 13px; color: var(--ink-3); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
-    .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-    .news-card { background: var(--white); border: 1px solid var(--rule); padding: 20px; transition: border-color 0.15s; text-decoration: none; display: block; }
-    .news-card:hover { border-color: var(--ink); }
-    .news-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 8px; flex-wrap: wrap; }
-    .news-source { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
-    .news-date { font-size: 11px; color: var(--ink-3); }
-    .news-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
-    .news-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-
-    .loading { text-align: center; padding: 40px; color: var(--ink-3); font-size: 14px; }
-    .loading-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin: 0 3px; animation: bounce 1.2s infinite; }
+    .loading { text-align: center; padding: 40px; color: var(--ink-4); font-size: 13px; letter-spacing: 0.04em; }
+    .loading-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); margin: 0 3px; animation: bounce 1.2s infinite; }
     .loading-dot:nth-child(2) { animation-delay: 0.2s; }
     .loading-dot:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes bounce { 0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
+    @keyframes bounce { 0%,80%,100%{transform:scale(0.6);opacity:0.4}40%{transform:scale(1);opacity:1} }
+    .error-card { background: var(--red-light); border: 1px solid #f5c0c0; padding: 16px 20px; font-size: 13px; color: var(--red); }
 
-    .error-card { background: #fde8e8; border: 1px solid #f5c0c0; padding: 16px 20px; font-size: 14px; color: var(--red); }
-
-    .curation-note { background: #e8eef5; border: 1px solid #c4d4e8; padding: 16px 20px; margin-bottom: 32px; display: flex; gap: 12px; align-items: flex-start; }
-    .curation-text { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+    .curation-note { background: var(--white); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 14px 18px; margin-bottom: 36px; display: flex; gap: 12px; align-items: flex-start; }
+    .curation-text { font-size: 12px; color: var(--ink-3); line-height: 1.65; letter-spacing: 0.01em; }
     .curation-text strong { color: var(--ink); }
-
-    footer { background: var(--ink); color: #aaa; padding: 32px 24px; margin-top: 48px; font-size: 13px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-links a { color: #aaa; text-decoration: none; }
-    .footer-links a:hover { color: white; }
 
     @media (max-width: 680px) { .news-grid { grid-template-columns: 1fr; } }
   </style>
@@ -90,13 +146,14 @@
 
 <header class="masthead">
   <div class="masthead-inner">
-    <div>
-      <a href="/" class="site-name">VoteInformed</a>
-      <div class="site-tagline">Voter guides · Issue explainers · Real world headlines</div>
+    <div class="masthead-left">
+      <a href="/" class="site-name">Vote<span>Informed</span></a>
+      <div class="site-tagline">Voter guides &middot; Issue explainers &middot; Real world headlines</div>
     </div>
     <div class="masthead-date" id="date-display"></div>
   </div>
 </header>
+<div class="masthead-rule"></div>
 
 <nav>
   <div class="nav-inner">
@@ -114,9 +171,9 @@
   <div class="page-header-inner">
     <div>
       <h1 class="page-title">World Headlines</h1>
-      <p class="page-subtitle">Live from the BBC. Updated automatically.</p>
+      <p class="page-subtitle">Live from the BBC &middot; Updated automatically</p>
     </div>
-    <div class="source-note"><strong>Sources:</strong> Articles from the BBC — selected for factual accuracy and minimal editorial bias.</div>
+    <div class="source-note"><strong>Source:</strong> BBC News RSS feeds — center-rated for factual accuracy and minimal editorial bias.</div>
   </div>
 </div>
 
@@ -133,102 +190,91 @@
 
 <div class="container">
   <div class="curation-note">
-    <span>📌</span>
-    <div class="curation-text"><strong>How we curate:</strong> Articles are pulled live from the BBC's RSS feeds — we've chosen a center-rated source for factual accuracy. Heat levels reflect the severity of ongoing conflict or instability in each region. Ex. The higher the heat, the more pressing the issue.</div>
+    <span style="font-size:16px;flex-shrink:0;">📌</span>
+    <div class="curation-text"><strong>How we curate:</strong> Articles are pulled live from BBC News RSS feeds — a center-rated source selected for factual accuracy. Heat levels reflect the severity of ongoing conflict or instability in each region. The higher the heat, the more pressing the issue.</div>
   </div>
 
-  <!-- AMERICAS -->
   <div class="continent-section active" id="tab-americas">
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🇺🇸</span><h2 class="zone-title">United States</h2><span class="zone-heat heat-high">High</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🇺🇸</div><div class="zone-title-box"><span class="zone-title">United States</span><span class="zone-heat heat-high">High</span></div></div>
       <div class="news-grid" id="feed-us"></div>
     </div>
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🌎</span><h2 class="zone-title">Latin America</h2><span class="zone-heat heat-elevated">Elevated</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🌎</div><div class="zone-title-box"><span class="zone-title">Latin America</span><span class="zone-heat heat-elevated">Elevated</span></div></div>
       <div class="news-grid" id="feed-latam"></div>
     </div>
   </div>
 
-  <!-- EUROPE -->
   <div class="continent-section" id="tab-europe">
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🇺🇦</span><h2 class="zone-title">Ukraine & Russia</h2><span class="zone-heat heat-critical">Critical</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🇺🇦</div><div class="zone-title-box"><span class="zone-title">Ukraine &amp; Russia</span><span class="zone-heat heat-critical">Critical</span></div></div>
       <div class="news-grid" id="feed-ukraine"></div>
     </div>
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🇪🇺</span><h2 class="zone-title">European Union</h2><span class="zone-heat heat-elevated">Elevated</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🇪🇺</div><div class="zone-title-box"><span class="zone-title">European Union</span><span class="zone-heat heat-elevated">Elevated</span></div></div>
       <div class="news-grid" id="feed-eu"></div>
     </div>
   </div>
 
-  <!-- MIDDLE EAST -->
   <div class="continent-section" id="tab-middleeast">
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🇵🇸</span><h2 class="zone-title">Gaza & Israel</h2><span class="zone-heat heat-critical">Critical</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🇵🇸</div><div class="zone-title-box"><span class="zone-title">Gaza &amp; Israel</span><span class="zone-heat heat-critical">Critical</span></div></div>
       <div class="news-grid" id="feed-gaza"></div>
     </div>
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🇮🇷</span><h2 class="zone-title">Iran & the Gulf</h2><span class="zone-heat heat-high">High</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🇮🇷</div><div class="zone-title-box"><span class="zone-title">Iran &amp; the Gulf</span><span class="zone-heat heat-high">High</span></div></div>
       <div class="news-grid" id="feed-iran"></div>
     </div>
   </div>
 
-  <!-- ASIA -->
   <div class="continent-section" id="tab-asia">
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🇨🇳</span><h2 class="zone-title">China & Taiwan</h2><span class="zone-heat heat-high">High</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🇨🇳</div><div class="zone-title-box"><span class="zone-title">China &amp; Taiwan</span><span class="zone-heat heat-high">High</span></div></div>
       <div class="news-grid" id="feed-china"></div>
     </div>
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🇰🇵</span><h2 class="zone-title">Korean Peninsula</h2><span class="zone-heat heat-elevated">Elevated</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🇰🇵</div><div class="zone-title-box"><span class="zone-title">Korean Peninsula</span><span class="zone-heat heat-elevated">Elevated</span></div></div>
       <div class="news-grid" id="feed-korea"></div>
     </div>
   </div>
 
-  <!-- AFRICA -->
   <div class="continent-section" id="tab-africa">
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🇸🇩</span><h2 class="zone-title">Sudan & Horn of Africa</h2><span class="zone-heat heat-critical">Critical</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🇸🇩</div><div class="zone-title-box"><span class="zone-title">Sudan &amp; Horn of Africa</span><span class="zone-heat heat-critical">Critical</span></div></div>
       <div class="news-grid" id="feed-sudan"></div>
     </div>
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🌍</span><h2 class="zone-title">West Africa & the Sahel</h2><span class="zone-heat heat-high">High</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🌍</div><div class="zone-title-box"><span class="zone-title">West Africa &amp; the Sahel</span><span class="zone-heat heat-high">High</span></div></div>
       <div class="news-grid" id="feed-sahel"></div>
     </div>
   </div>
 
-  <!-- OCEANIA -->
   <div class="continent-section" id="tab-oceania">
     <div class="zone">
-      <div class="zone-header"><span class="zone-flag">🇦🇺</span><h2 class="zone-title">Australia & Pacific</h2><span class="zone-heat heat-watch">Watch</span></div>
+      <div class="zone-header"><div class="zone-flag-box">🇦🇺</div><div class="zone-title-box"><span class="zone-title">Australia &amp; Pacific</span><span class="zone-heat heat-watch">Watch</span></div></div>
       <div class="news-grid" id="feed-oceania"></div>
     </div>
   </div>
-
 </div>
 
 <footer>
   <div class="footer-inner">
-    <div>
-      <div class="footer-name">VoteInformed</div>
-      <div style="margin-top:4px;">Nonpartisan civic education. No ads, no agenda.</div>
+    <div class="footer-top">
+      <div>
+        <div class="footer-name">Vote<span>Informed</span></div>
+        <div class="footer-tagline">Nonpartisan civic education &middot; No ads &middot; No agenda</div>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a><a href="/opinions.html">Opinions</a><a href="/media.html">Media Bias</a><a href="/about.html">About</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/opinions.html">Opinions</a>
-      <a href="/media.html">Media Bias</a>
-      <a href="/about.html">About</a>
-    </div>
+    <div class="footer-bottom">© 2026 VoteInformed · voteinformed.info</div>
   </div>
 </footer>
 
 <script>
 document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-// RSS → JSON proxy (free, no key needed)
 const PROXY = 'https://rss-proxy.ryan-yarlagadda6512.workers.dev/?url=';
-
-// Feed definitions: each zone gets a search-filtered BBC/AP/Reuters RSS
 const feeds = {
   'feed-us':      { url: 'https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml', source: 'BBC News' },
   'feed-latam':   { url: 'https://feeds.bbci.co.uk/news/world/latin_america/rss.xml', source: 'BBC News' },
@@ -242,8 +288,6 @@ const feeds = {
   'feed-sahel':   { url: 'https://feeds.bbci.co.uk/news/world/africa/rss.xml', source: 'BBC News' },
   'feed-oceania': { url: 'https://feeds.bbci.co.uk/news/world/australia/rss.xml', source: 'BBC News' },
 };
-
-// Keywords to filter articles per zone
 const keywords = {
   'feed-us':      ['united states', 'washington', 'congress', 'trump', 'biden', 'senate', 'white house', 'supreme court', 'election', 'american'],
   'feed-latam':   ['mexico', 'brazil', 'colombia', 'venezuela', 'argentina', 'latin america', 'central america', 'cuba', 'chile', 'peru'],
@@ -253,75 +297,50 @@ const keywords = {
   'feed-iran':    ['iran', 'saudi arabia', 'gulf', 'houthi', 'yemen', 'nuclear', 'tehran', 'riyadh'],
   'feed-china':   ['china', 'taiwan', 'beijing', 'xi jinping', 'hong kong', 'south china sea', 'prc'],
   'feed-korea':   ['north korea', 'south korea', 'kim jong', 'seoul', 'pyongyang', 'korean'],
-  'feed-sudan':   ['sudan', 'ethiopia', 'somalia', 'horn of africa', 'eritrea', 'djibouti', 'rsf'],
-  'feed-sahel':   ['sahel', 'mali', 'niger', 'burkina faso', 'nigeria', 'senegal', 'west africa', 'jihadist', 'coup'],
+  'feed-sudan':   ['sudan', 'ethiopia', 'somalia', 'eritrea', 'djibouti', 'rsf', 'nairobi', 'addis', 'mogadishu', 'africa', 'african'],
+  'feed-sahel':   ['sahel', 'mali', 'niger', 'burkina faso', 'nigeria', 'senegal', 'west africa', 'jihadist', 'coup', 'africa', 'african'],
   'feed-oceania': ['australia', 'new zealand', 'pacific', 'papua', 'fiji', 'solomon islands'],
 };
-
-function timeAgo(dateStr) {
-  const diff = Math.floor((Date.now() - new Date(dateStr)) / 60000);
+function timeAgo(d) {
+  const diff = Math.floor((Date.now() - new Date(d)) / 60000);
   if (diff < 60) return diff + 'm ago';
-  if (diff < 1440) return Math.floor(diff / 60) + 'h ago';
-  return Math.floor(diff / 1440) + 'd ago';
+  if (diff < 1440) return Math.floor(diff/60) + 'h ago';
+  return Math.floor(diff/1440) + 'd ago';
 }
-
-function renderCards(containerId, items, source) {
-  const container = document.getElementById(containerId);
-  if (!items || items.length === 0) {
-    container.innerHTML = '<div class="error-card">No recent articles found for this region. Check back soon.</div>';
-    return;
-  }
-  container.innerHTML = items.slice(0, 4).map(item => `
+function renderCards(id, items, source) {
+  const c = document.getElementById(id);
+  if (!items || !items.length) { c.innerHTML = '<div class="error-card">No recent articles found for this region. Check back soon.</div>'; return; }
+  c.innerHTML = items.slice(0,4).map(item => `
     <a href="${item.link}" class="news-card" target="_blank" rel="noopener">
-      <div class="news-card-top">
-        <span class="news-source">${source}</span>
-        <span class="news-date">${timeAgo(item.pubDate)}</span>
-      </div>
+      <div class="news-card-top"><span class="news-source">${source}</span><span class="news-date">${timeAgo(item.pubDate)}</span></div>
       <div class="news-title">${item.title}</div>
-      <div class="news-desc">${item.description ? item.description.replace(/<[^>]+>/g, '') : ''}</div>
-    </a>
-  `).join('');
+      <div class="news-desc">${item.description ? item.description.replace(/<[^>]+>/g,'') : ''}</div>
+    </a>`).join('');
 }
-
-function loadFeed(containerId) {
-  const feed = feeds[containerId];
-  const kws = keywords[containerId];
-  const container = document.getElementById(containerId);
-  container.innerHTML = '<div class="loading"><span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span></div>';
-
+function loadFeed(id) {
+  const feed = feeds[id], kws = keywords[id], c = document.getElementById(id);
+  c.innerHTML = '<div class="loading"><span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span></div>';
   fetch(PROXY + encodeURIComponent(feed.url))
     .then(r => r.json())
     .then(data => {
       if (!data.items) throw new Error('No items');
       const filtered = data.items.filter(item => {
-        const text = (item.title + ' ' + (item.description || '')).toLowerCase();
+        const text = (item.title + ' ' + (item.description||'')).toLowerCase();
         return kws.some(kw => text.includes(kw));
       });
-      renderCards(containerId, filtered, feed.source);
+      renderCards(id, filtered, feed.source);
     })
-    .catch(() => {
-      container.innerHTML = '<div class="error-card">Could not load articles right now. Try refreshing the page.</div>';
-    });
+    .catch(() => { c.innerHTML = '<div class="error-card">Could not load articles right now. Try refreshing.</div>'; });
 }
-
-// Load visible feeds on start
-const visibleFeeds = ['feed-us', 'feed-latam'];
+const visibleFeeds = ['feed-us','feed-latam'];
 visibleFeeds.forEach(loadFeed);
-
-// Track which feeds have been loaded
 const loaded = new Set(visibleFeeds);
-
 function switchTab(id, btn) {
   document.querySelectorAll('.continent-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
-
-  // Load feeds for this tab if not already loaded
-  const tabFeeds = Object.keys(feeds).filter(f => {
-    const el = document.getElementById(f);
-    return el && document.getElementById('tab-' + id).contains(el);
-  });
+  const tabFeeds = Object.keys(feeds).filter(f => { const el = document.getElementById(f); return el && document.getElementById('tab-'+id).contains(el); });
   tabFeeds.forEach(f => { if (!loaded.has(f)) { loadFeed(f); loaded.add(f); } });
 }
 </script>
