@@ -5,282 +5,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — VoteInformed</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ============================================
+   VOTEINFORMED — SHARED DESIGN SYSTEM v2
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0d0d0d;
+  --ink-2: #333333;
+  --ink-3: #6b6b6b;
+  --ink-4: #999999;
+  --rule: #d8d4cc;
+  --rule-light: #eae7e0;
+  --bg: #f5f3ee;
+  --white: #ffffff;
+  --accent: #1a3a5c;
+  --accent-2: #2a5a8c;
+  --red: #b01c1c;
+  --red-light: #fdf0f0;
+  --green: #1a5c3a;
+  --amber: #7a4e00;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
 
-    :root {
-      --ink: #0f0f0f;
-      --ink-2: #3a3a3a;
-      --ink-3: #6b6b6b;
-      --rule: #d4d0c8;
-      --bg: #f7f5f0;
-      --white: #ffffff;
-      --accent: #1a3a5c;
-      --red: #b01c1c;
-    }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1.6;
-    }
+/* ── MASTHEAD ── */
+.masthead { background: var(--white); padding: 0 24px; border-bottom: 1px solid var(--rule); }
+.masthead-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 18px 0 14px; gap: 16px; flex-wrap: wrap; }
+.masthead-left { display: flex; flex-direction: column; }
+.site-name { font-family: var(--serif); font-size: clamp(30px, 5vw, 52px); font-weight: 900; letter-spacing: -1.5px; color: var(--ink); line-height: 1; text-decoration: none; display: block; }
+.site-name span { color: var(--red); }
+.site-tagline { font-size: 11px; color: var(--ink-4); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 5px; }
+.masthead-date { font-size: 11px; color: var(--ink-4); letter-spacing: 0.06em; text-align: right; }
 
-    /* ── MASTHEAD ── */
-    .masthead {
-      background: var(--white);
-      border-bottom: 3px solid var(--ink);
-      padding: 0 24px;
-    }
-    .masthead-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0 12px;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .site-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 5vw, 48px);
-      font-weight: 900;
-      letter-spacing: -1px;
-      color: var(--ink);
-      line-height: 1;
-      text-decoration: none;
-    }
-    .site-tagline {
-      font-size: 12px;
-      color: var(--ink-3);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
+/* Triple rule bar */
+.masthead-rule { height: 5px; background: var(--ink); position: relative; }
+.masthead-rule::before { content: ''; position: absolute; top: -3px; left: 0; right: 0; height: 1px; background: var(--red); }
+.masthead-rule::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--red); }
 
-    /* ── NAV ── */
-    nav {
-      background: var(--ink);
-      padding: 0 24px;
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      overflow-x: auto;
-    }
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 10px 18px;
-      display: block;
-      white-space: nowrap;
-      transition: color 0.15s, background 0.15s;
-    }
-    nav a:hover, nav a.active { color: var(--white); background: rgba(255,255,255,0.08); }
+/* ── NAV ── */
+nav { background: var(--ink); padding: 0 24px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+nav a { color: #aaa; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 11px 18px; display: block; white-space: nowrap; transition: color 0.15s, background 0.15s; border-bottom: 2px solid transparent; }
+nav a:hover { color: #fff; }
+nav a.active { color: #fff; border-bottom-color: var(--red); }
 
-    /* ── PAGE HEADER ── */
-    .page-header {
-      background: var(--accent);
-      color: white;
-      padding: 56px 24px;
-    }
-    .page-header-inner {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .page-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      margin-bottom: 12px;
-    }
-    .page-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -1px;
-    }
+/* ── BUTTONS ── */
+.btn { display: inline-block; padding: 11px 22px; font-size: 13px; font-weight: 600; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.15s; border: none; cursor: pointer; font-family: var(--sans); }
+.btn-primary { background: var(--ink); color: white; }
+.btn-primary:hover { background: var(--accent); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-outline:hover { background: var(--ink); color: white; }
+.btn-white { background: white; color: var(--accent); font-weight: 600; }
+.btn-white:hover { background: #e8eef5; }
 
-    /* ── CONTENT ── */
-    .content {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 56px 24px;
-    }
+/* ── SECTION HEADERS ── */
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+.section-header-rule { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.section-title { font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+.section-rule-thick { height: 2px; background: var(--ink); }
+.section-rule-thin { height: 1px; background: var(--rule); }
+.section-more { font-size: 11px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.section-more:hover { color: var(--red); }
 
-    /* ── MISSION BLOCK ── */
-    .mission {
-      border-left: 4px solid var(--accent);
-      padding: 24px 28px;
-      background: var(--white);
-      margin-bottom: 48px;
-    }
-    .mission-text {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(20px, 3vw, 26px);
-      font-weight: 700;
-      line-height: 1.4;
-      color: var(--ink);
-    }
+/* ── ZONE HEADERS (news page) ── */
+.zone-header { display: flex; align-items: stretch; gap: 0; margin-bottom: 24px; }
+.zone-flag-box { background: var(--ink); color: white; font-size: 20px; padding: 10px 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.zone-title-box { flex: 1; border: 2px solid var(--ink); border-left: none; padding: 8px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.zone-title { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.3px; }
+.zone-heat { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 10px; flex-shrink: 0; }
+.heat-critical { background: var(--red); color: white; }
+.heat-high { background: var(--ink); color: white; }
+.heat-elevated { background: var(--ink-3); color: white; }
+.heat-watch { background: var(--rule); color: var(--ink); }
 
-    /* ── BODY COPY ── */
-    .body-section {
-      margin-bottom: 40px;
-    }
-    .body-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--ink);
-    }
-    .body-section p {
-      font-size: 17px;
-      color: var(--ink-2);
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
+/* ── FOOTER ── */
+footer { background: var(--ink); color: #888; padding: 40px 24px 32px; margin-top: 64px; font-size: 13px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; padding-bottom: 24px; border-bottom: 1px solid #222; margin-bottom: 24px; }
+.footer-name { font-family: var(--serif); font-size: 22px; font-weight: 900; color: white; letter-spacing: -0.5px; margin-bottom: 4px; }
+.footer-name span { color: var(--red); }
+.footer-tagline { font-size: 12px; color: #666; letter-spacing: 0.06em; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { color: #888; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; }
+.footer-links a:hover { color: white; }
+.footer-bottom { font-size: 11px; color: #444; letter-spacing: 0.04em; }
+
+@media (max-width: 768px) {
+  .zone-header { flex-direction: column; }
+  .zone-title-box { border-left: 2px solid var(--ink); }
+}
+    /* de-red */
+    .site-name span { color: var(--accent); }
+    .footer-name span { color: var(--accent-2); }
+    nav a.active { color: #fff; border-bottom-color: #6a9fd8; }
+
+    .page-header { background: var(--ink); color: white; padding: 64px 24px; }
+    .page-header-inner { max-width: 760px; margin: 0 auto; }
+    .page-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.45; margin-bottom: 16px; }
+    .page-title { font-family: var(--serif); font-size: clamp(36px, 5vw, 60px); font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; }
+    .page-title em { font-style: italic; color: #6a9fd8; }
+
+    .content { max-width: 760px; margin: 0 auto; padding: 56px 24px; }
+
+    .mission-block { border-left: 4px solid var(--accent); padding: 24px 28px; background: var(--white); margin-bottom: 52px; }
+    .mission-text { font-family: var(--serif); font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; line-height: 1.45; color: var(--ink); font-style: italic; }
+
+    .body-section { margin-bottom: 44px; }
+    .body-section h2 { font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); display: flex; align-items: center; gap: 12px; }
+    .body-section h2::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .body-section p { font-size: 17px; color: var(--ink-2); line-height: 1.8; margin-bottom: 18px; }
     .body-section p:last-child { margin-bottom: 0; }
 
-    /* ── PRINCIPLES ── */
-    .principles {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 8px;
-    }
-    .principle {
-      background: var(--white);
-      border: 1px solid var(--rule);
-      padding: 20px;
-    }
-    .principle-title {
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-    .principle-desc {
-      font-size: 14px;
-      color: var(--ink-3);
-      line-height: 1.55;
-    }
+    .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 4px; }
+    .principle { background: var(--white); padding: 22px; }
+    .principle-num { font-family: var(--serif); font-size: 32px; font-weight: 900; color: var(--rule); line-height: 1; margin-bottom: 8px; }
+    .principle-title { font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 5px; }
+    .principle-desc { font-size: 13px; color: var(--ink-3); line-height: 1.6; }
 
-    /* ── FOUNDER CARD ── */
-    .founder-card {
-      background: var(--white);
-      border: 1px solid var(--rule);
-      padding: 28px;
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
-      margin-top: 8px;
-    }
-    .founder-avatar {
-      width: 64px;
-      height: 64px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      font-weight: 900;
-      color: white;
-    }
-    .founder-info {}
-    .founder-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 2px;
-    }
-    .founder-role {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    .founder-bio {
-      font-size: 15px;
-      color: var(--ink-2);
-      line-height: 1.65;
-    }
+    .founder-card { background: var(--white); border: 1px solid var(--rule); padding: 32px; display: flex; gap: 28px; align-items: flex-start; margin-top: 4px; }
+    .founder-avatar { width: 64px; height: 64px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--serif); font-size: 24px; font-weight: 900; color: white; }
+    .founder-name { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+    .founder-role { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .founder-bio { font-size: 15px; color: var(--ink-2); line-height: 1.7; }
 
-    /* ── CTA ── */
-    .cta-box {
-      background: var(--accent);
-      color: white;
-      padding: 32px;
-      text-align: center;
-      margin-top: 48px;
-    }
-    .cta-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .cta-desc {
-      font-size: 15px;
-      opacity: 0.8;
-      margin-bottom: 20px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 11px 24px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.15s;
-    }
-    .btn-white { background: white; color: var(--accent); }
-    .btn-white:hover { background: #e8eef5; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      color: #aaa;
-      padding: 32px 24px;
-      margin-top: 0;
-      font-size: 13px;
-    }
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: white;
-    }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a { color: #aaa; text-decoration: none; }
-    .footer-links a:hover { color: white; }
+    .cta-box { background: var(--accent); color: white; padding: 40px; text-align: center; margin-top: 52px; }
+    .cta-title { font-family: var(--serif); font-size: 28px; font-weight: 700; margin-bottom: 8px; font-style: italic; }
+    .cta-desc { font-size: 14px; opacity: 0.75; margin-bottom: 24px; }
 
     @media (max-width: 600px) {
       .principles { grid-template-columns: 1fr; }
@@ -290,103 +145,92 @@
 </head>
 <body>
 
-  <header class="masthead">
-    <div class="masthead-inner">
-      <div>
-        <a href="/" class="site-name">VoteInformed</a>
-        <div class="site-tagline">Voter guides · Issue explainers · Real world headlines</div>
-      </div>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-left">
+      <a href="/" class="site-name">Vote<span>Informed</span></a>
+      <div class="site-tagline">Voter guides &middot; Issue explainers &middot; Real world headlines</div>
     </div>
-  </header>
+  </div>
+</header>
+<div class="masthead-rule"></div>
 
-  <nav>
-    <div class="nav-inner">
-      <a href="/">Home</a>
-      <a href="/#register">How to Vote</a>
-      <a href="/#issues">The Issues</a>
-      <a href="/news.html">News</a>
-      <a href="/opinions.html">Opinions</a>
-      <a href="/media.html">Media Bias</a>
-      <a href="/about.html" class="active">About</a>
-    </div>
-  </nav>
+<nav>
+  <div class="nav-inner">
+    <a href="/">Home</a>
+    <a href="/#register">How to Vote</a>
+    <a href="/#issues">The Issues</a>
+    <a href="/news.html">News</a>
+    <a href="/opinions.html">Opinions</a>
+    <a href="/media.html">Media Bias</a>
+    <a href="/about.html" class="active">About</a>
+  </div>
+</nav>
 
-  <div class="page-header">
-    <div class="page-header-inner">
-      <div class="page-eyebrow">About VoteInformed</div>
-      <h1 class="page-title">Built for the people who never got the memo.</h1>
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">About VoteInformed</div>
+    <h1 class="page-title">Built for the people who never <em>got the memo.</em></h1>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="mission-block">
+    <div class="mission-text">"Everyone deserves to know who and what they're voting for — not just people who already follow politics."</div>
+  </div>
+
+  <div class="body-section">
+    <h2>Why this exists</h2>
+    <p>Most political content is written for people who are already engaged. The explainers assume you know the backstory. The debate coverage assumes you already have a side. The voter guides are buried on government websites nobody finds until the night before an election.</p>
+    <p>VoteInformed was built to fix that. The goal is simple: take everything that feels complicated or partisan about civic life and make it genuinely accessible — to anyone, regardless of how much they follow the news.</p>
+    <p>An informed vote isn't a Democratic vote or a Republican vote. It's a vote made with real understanding of what's at stake. That's what this site is for.</p>
+  </div>
+
+  <div class="body-section">
+    <h2>What we believe</h2>
+    <div class="principles">
+      <div class="principle"><div class="principle-num">01</div><div class="principle-title">No spin</div><div class="principle-desc">Every issue is presented with the strongest arguments on all sides. We don't tell you what to think.</div></div>
+      <div class="principle"><div class="principle-num">02</div><div class="principle-title">Plain language</div><div class="principle-desc">No jargon, no assumed knowledge. If you need to Google a word to understand us, we've failed.</div></div>
+      <div class="principle"><div class="principle-num">03</div><div class="principle-title">No ads</div><div class="principle-desc">This site has no advertisers and no political sponsors. Nobody is paying to have their message here.</div></div>
+      <div class="principle"><div class="principle-num">04</div><div class="principle-title">Built for everyone</div><div class="principle-desc">First-time voters, students, lifelong citizens — this is for anyone who wants to be more informed.</div></div>
     </div>
   </div>
 
-  <div class="content">
-
-    <div class="mission">
-      <div class="mission-text">"Everyone deserves to know who and what they're voting for — not just people who already follow politics."</div>
-    </div>
-
-    <div class="body-section">
-      <h2>Why this exists</h2>
-      <p>Most political content is written for people who are already engaged. The explainers assume you know the backstory. The debate coverage assumes you already have a side. The voter guides are buried on government websites that nobody finds until the night before an election.</p>
-      <p>VoteInformed was built to fix that. The goal is simple: take everything that feels complicated or partisan about civic life and make it genuinely accessible — to anyone, regardless of how much they follow the news.</p>
-      <p>An informed vote isn't a Democratic vote or a Republican vote. It's a vote made with real understanding of what's at stake. That's what this site is for.</p>
-    </div>
-
-    <div class="body-section">
-      <h2>What we believe</h2>
-      <div class="principles">
-        <div class="principle">
-          <div class="principle-title">No spin</div>
-          <div class="principle-desc">Every issue is presented with the strongest arguments on both sides. We don't tell you what to think.</div>
-        </div>
-        <div class="principle">
-          <div class="principle-title">Plain language</div>
-          <div class="principle-desc">No jargon, no assumed knowledge. If you need to Google a word to understand the explainer, we've failed.</div>
-        </div>
-        <div class="principle">
-          <div class="principle-title">No ads</div>
-          <div class="principle-desc">This site has no advertisers and no political sponsors. Nobody is paying to have their message here.</div>
-        </div>
-        <div class="principle">
-          <div class="principle-title">Built for everyone</div>
-          <div class="principle-desc">First-time voters, debate students, lifelong citizens — this resource is for anyone who wants to be more informed.</div>
-        </div>
+  <div class="body-section">
+    <h2>Who built this</h2>
+    <div class="founder-card">
+      <div class="founder-avatar">RY</div>
+      <div>
+        <div class="founder-name">Ryan Yarlagadda</div>
+        <div class="founder-role">Founder</div>
+        <div class="founder-bio">I built VoteInformed because I kept seeing people around me — smart, thoughtful people — feel completely lost when it came to politics. Not because they didn't care, but because nobody had ever broken it down for them in a way that made sense. This site is my attempt to change that. No agenda, no party — just clarity.</div>
       </div>
     </div>
-
-    <div class="body-section">
-      <h2>Who built this</h2>
-      <div class="founder-card">
-        <div class="founder-avatar">RY</div>
-        <div class="founder-info">
-          <div class="founder-name">Ryan Yarlagadda</div>
-          <div class="founder-role">Founder</div>
-          <div class="founder-bio">I built VoteInformed because I kept seeing people around me — smart, thoughtful people — feel lost when it came to politics. Not because they didn't care, but because nobody had ever broken it down for them in a way that made sense. This site is my attempt to change that. No agenda, no party, just clarity.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cta-box">
-      <div class="cta-title">Ready to get informed?</div>
-      <div class="cta-desc">Start with the issues, check your registration, or dive into debate prep.</div>
-      <a href="/" class="btn btn-white">Back to home</a>
-    </div>
-
   </div>
 
-  <footer>
-    <div class="footer-inner">
+  <div class="cta-box">
+    <div class="cta-title">Ready to get informed?</div>
+    <div class="cta-desc">Start with the issues, check your registration, or read today's headlines.</div>
+    <a href="/" class="btn btn-white">Back to home</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
       <div>
-        <div class="footer-name">VoteInformed</div>
-        <div style="margin-top:4px;">Nonpartisan civic education. No ads, no agenda.</div>
+        <div class="footer-name">Vote<span>Informed</span></div>
+        <div class="footer-tagline">Nonpartisan civic education &middot; No ads &middot; No agenda</div>
       </div>
       <div class="footer-links">
-        <a href="/vote">How to vote</a>
-        <a href="/issues">Issues</a>
-        <a href="/debate">Debate prep</a>
-        <a href="/about">About</a>
+        <a href="/">Home</a><a href="/news.html">News</a><a href="/issues.html">Issues</a><a href="/media.html">Media Bias</a><a href="/about.html">About</a>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">© 2026 VoteInformed · voteinformed.info</div>
+  </div>
+</footer>
 
 </body>
 </html>
