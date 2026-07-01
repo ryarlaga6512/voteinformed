@@ -5,102 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VoteInformed — Know before you vote</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #0f0f0f; --ink-2: #3a3a3a; --ink-3: #6b6b6b;
-      --rule: #d4d0c8; --bg: #f7f5f0; --white: #ffffff;
-      --accent: #1a3a5c; --accent-light: #e8eef5;
-      --red: #b01c1c; --green: #1a5c3a; --amber: #7a4e00;
-    }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; }
+    /* ============================================
+   VOTEINFORMED — SHARED DESIGN SYSTEM v2
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0d0d0d;
+  --ink-2: #333333;
+  --ink-3: #6b6b6b;
+  --ink-4: #999999;
+  --rule: #d8d4cc;
+  --rule-light: #eae7e0;
+  --bg: #f5f3ee;
+  --white: #ffffff;
+  --accent: #1a3a5c;
+  --accent-2: #2a5a8c;
+  --red: #b01c1c;
+  --red-light: #fdf0f0;
+  --green: #1a5c3a;
+  --amber: #7a4e00;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
 
-    .masthead { background: var(--white); border-bottom: 3px solid var(--ink); padding: 0 24px; }
-    .masthead-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 0 12px; gap: 16px; flex-wrap: wrap; }
-    .site-name { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; letter-spacing: -1px; color: var(--ink); line-height: 1; text-decoration: none; display: block; }
-    .site-tagline { font-size: 12px; color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
-    .masthead-date { font-size: 12px; color: var(--ink-3); letter-spacing: 0.05em; text-align: right; }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    nav { background: var(--ink); padding: 0 24px; }
-    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; }
-    nav a { color: #ccc; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 18px; display: block; white-space: nowrap; transition: color 0.15s, background 0.15s; }
-    nav a:hover, nav a.active { color: #fff; background: rgba(255,255,255,0.08); }
+/* ── MASTHEAD ── */
+.masthead { background: var(--white); padding: 0 24px; border-bottom: 1px solid var(--rule); }
+.masthead-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 18px 0 14px; gap: 16px; flex-wrap: wrap; }
+.masthead-left { display: flex; flex-direction: column; }
+.site-name { font-family: var(--serif); font-size: clamp(30px, 5vw, 52px); font-weight: 900; letter-spacing: -1.5px; color: var(--ink); line-height: 1; text-decoration: none; display: block; }
+.site-name span { color: var(--accent); }
+.site-tagline { font-size: 11px; color: var(--ink-4); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 5px; }
+.masthead-date { font-size: 11px; color: var(--ink-4); letter-spacing: 0.06em; text-align: right; }
 
-    .banner { background: var(--accent); color: white; padding: 10px 24px; display: flex; align-items: center; gap: 12px; font-size: 13px; }
-    .banner-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; width: 100%; }
-    .banner-label { background: var(--red); color: white; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; flex-shrink: 0; }
-    .banner a { color: #a8c8f0; text-decoration: underline; }
+/* Triple rule bar */
+.masthead-rule { height: 5px; background: var(--ink); position: relative; }
+.masthead-rule::before { content: ''; position: absolute; top: -3px; left: 0; right: 0; height: 1px; background: var(--rule); }
+.masthead-rule::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--rule); }
 
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+/* ── NAV ── */
+nav { background: var(--ink); padding: 0 24px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+nav a { color: #aaa; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 11px 18px; display: block; white-space: nowrap; transition: color 0.15s, background 0.15s; border-bottom: 2px solid transparent; }
+nav a:hover { color: #fff; }
+nav a.active { color: #fff; border-bottom-color: #6a9fd8; }
 
-    .hero { padding: 32px 24px 0; max-width: 1100px; margin: 0 auto; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 340px; gap: 32px; border-bottom: 1px solid var(--rule); padding-bottom: 32px; }
-    .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
-    .hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 16px; }
-    .hero-deck { font-size: 17px; color: var(--ink-2); line-height: 1.65; margin-bottom: 24px; max-width: 580px; }
-    .hero-cta { display: inline-flex; gap: 12px; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 11px 22px; font-size: 14px; font-weight: 600; text-decoration: none; letter-spacing: 0.03em; transition: all 0.15s; border: none; cursor: pointer; }
-    .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { background: #0f2840; }
-    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
-    .btn-outline:hover { background: var(--ink); color: white; }
+/* ── BUTTONS ── */
+.btn { display: inline-block; padding: 11px 22px; font-size: 13px; font-weight: 600; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.15s; border: none; cursor: pointer; font-family: var(--sans); }
+.btn-primary { background: var(--ink); color: white; }
+.btn-primary:hover { background: var(--accent); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-outline:hover { background: var(--ink); color: white; }
+.btn-white { background: white; color: var(--accent); font-weight: 600; }
+.btn-white:hover { background: #e8eef5; }
+
+/* ── SECTION HEADERS ── */
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+.section-header-rule { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.section-title { font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+.section-rule-thick { height: 2px; background: var(--ink); }
+.section-rule-thin { height: 1px; background: var(--rule); }
+.section-more { font-size: 11px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.section-more:hover { color: var(--accent-2); }
+
+/* ── ZONE HEADERS (news page) ── */
+.zone-header { display: flex; align-items: stretch; gap: 0; margin-bottom: 24px; }
+.zone-flag-box { background: var(--ink); color: white; font-size: 20px; padding: 10px 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.zone-title-box { flex: 1; border: 2px solid var(--ink); border-left: none; padding: 8px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.zone-title { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.3px; }
+.zone-heat { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 10px; flex-shrink: 0; }
+.heat-critical { background: var(--red); color: white; }
+.heat-high { background: var(--ink); color: white; }
+.heat-elevated { background: var(--ink-3); color: white; }
+.heat-watch { background: var(--rule); color: var(--ink); }
+
+/* ── FOOTER ── */
+footer { background: var(--ink); color: #888; padding: 40px 24px 32px; margin-top: 64px; font-size: 13px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; padding-bottom: 24px; border-bottom: 1px solid #222; margin-bottom: 24px; }
+.footer-name { font-family: var(--serif); font-size: 22px; font-weight: 900; color: white; letter-spacing: -0.5px; margin-bottom: 4px; }
+.footer-name span { color: var(--accent-2); }
+.footer-tagline { font-size: 12px; color: #666; letter-spacing: 0.06em; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { color: #888; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; }
+.footer-links a:hover { color: white; }
+.footer-bottom { font-size: 11px; color: #444; letter-spacing: 0.04em; }
+
+@media (max-width: 768px) {
+  .zone-header { flex-direction: column; }
+  .zone-title-box { border-left: 2px solid var(--ink); }
+}
+
+    /* ── HERO ── */
+    .hero { max-width: 1100px; margin: 0 auto; padding: 40px 24px 0; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 320px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
+    .hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--accent); }
+    .hero-headline { font-family: var(--serif); font-size: clamp(34px, 4.5vw, 58px); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--ink); margin-bottom: 20px; }
+    .hero-headline em { font-style: italic; color: var(--accent); }
+    .hero-deck { font-size: 17px; color: var(--ink-2); line-height: 1.7; margin-bottom: 28px; max-width: 540px; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .hero-sidebar { border-left: 1px solid var(--rule); padding-left: 32px; }
-    .sidebar-title { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
-    .sidebar-item { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+    .sidebar-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+    .sidebar-item { padding: 16px 0; border-bottom: 1px solid var(--rule-light); }
     .sidebar-item:last-child { border-bottom: none; }
-    .sidebar-item-label { font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
-    .sidebar-item-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--ink); text-decoration: none; display: block; transition: color 0.15s; }
-    .sidebar-item-title:hover { color: var(--accent); }
-    .sidebar-item-desc { font-size: 13px; color: var(--ink-3); margin-top: 4px; }
+    .sidebar-cat { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 5px; }
+    .sidebar-title { font-family: var(--serif); font-size: 16px; font-weight: 700; line-height: 1.35; color: var(--ink); text-decoration: none; display: block; transition: color 0.15s; }
+    .sidebar-title:hover { color: var(--accent); }
+    .sidebar-desc { font-size: 12px; color: var(--ink-4); margin-top: 4px; line-height: 1.5; }
 
-    .section { padding: 40px 0; }
-    .section + .section { border-top: 1px solid var(--rule); }
-    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; }
-    .section-more { font-size: 12px; color: var(--accent); text-decoration: none; letter-spacing: 0.05em; font-weight: 500; margin-left: auto; }
-    .section-more:hover { text-decoration: underline; }
+    /* ── CONTAINER ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 40px 0; border-top: 1px solid var(--rule); }
 
-    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .card { background: var(--white); border: 1px solid var(--rule); padding: 20px; transition: border-color 0.15s; text-decoration: none; display: block; }
-    .card:hover { border-color: var(--ink); }
-    .card-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
-    .tag-vote { color: var(--red); }
+    /* ── CARDS ── */
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .card { background: var(--white); padding: 22px; text-decoration: none; display: block; transition: background 0.15s; }
+    .card:hover { background: #faf8f4; }
+    .card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .card-tag::before { content: ''; display: inline-block; width: 3px; height: 12px; }
+    .tag-issue::before { background: var(--accent); }
+    .tag-vote::before { background: var(--accent); }
+    .tag-media::before { background: var(--green); }
+    .tag-news::before { background: var(--amber); }
     .tag-issue { color: var(--accent); }
+    .tag-vote { color: var(--accent); }
     .tag-media { color: var(--green); }
     .tag-news { color: var(--amber); }
-    .card-title { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
-    .card-body { font-size: 14px; color: var(--ink-2); line-height: 1.6; margin-bottom: 14px; }
-    .card-link { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
-    .card-link::after { content: ' →'; }
+    .card-title { font-family: var(--serif); font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
+    .card-body { font-size: 13px; color: var(--ink-3); line-height: 1.65; margin-bottom: 14px; }
+    .card-link { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
 
-    .checklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .check-item { display: flex; gap: 14px; align-items: flex-start; background: var(--white); border: 1px solid var(--rule); padding: 18px; }
-    .check-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--rule); line-height: 1; flex-shrink: 0; width: 36px; }
-    .check-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
-    .check-desc { font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+    /* ── CHECKLIST ── */
+    .checklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .check-item { background: var(--white); padding: 22px; display: flex; gap: 18px; align-items: flex-start; }
+    .check-num { font-family: var(--serif); font-size: 36px; font-weight: 900; color: var(--rule); line-height: 1; flex-shrink: 0; width: 40px; }
+    .check-title { font-weight: 600; font-size: 15px; margin-bottom: 5px; }
+    .check-desc { font-size: 13px; color: var(--ink-3); line-height: 1.55; }
     .check-desc a { color: var(--accent); text-decoration: underline; }
 
-    .lookup-box { background: var(--accent); color: white; padding: 32px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
-    .lookup-text { flex: 1; min-width: 200px; }
-    .lookup-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin-bottom: 6px; }
-    .lookup-desc { font-size: 14px; opacity: 0.8; }
+    /* ── LOOKUP ── */
+    .lookup-box { background: var(--accent); color: white; padding: 36px 32px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .lookup-title { font-family: var(--serif); font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+    .lookup-desc { font-size: 14px; opacity: 0.75; }
     .lookup-form { display: flex; gap: 10px; flex-wrap: wrap; }
-    .lookup-select { padding: 10px 16px; font-size: 14px; font-family: 'Inter', sans-serif; border: none; background: white; color: var(--ink); min-width: 180px; cursor: pointer; }
-    .btn-white { background: white; color: var(--accent); font-weight: 600; }
-    .btn-white:hover { background: #e8eef5; }
+    .lookup-select { padding: 11px 16px; font-size: 13px; font-family: var(--sans); border: none; background: white; color: var(--ink); min-width: 180px; cursor: pointer; letter-spacing: 0.02em; }
 
-    footer { background: var(--ink); color: #aaa; padding: 32px 24px; margin-top: 48px; font-size: 13px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-links a { color: #aaa; text-decoration: none; }
-    .footer-links a:hover { color: white; }
+    /* ── BANNER ── */
+    .banner { background: #1a1a2e; color: white; padding: 10px 24px; }
+    .banner-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; font-size: 13px; }
+    .banner-label { background: var(--accent); color: white; font-weight: 700; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 2px 8px; flex-shrink: 0; }
+    .banner a { color: rgba(255,255,255,0.85); text-decoration: underline; }
 
     @media (max-width: 768px) {
       .hero-grid { grid-template-columns: 1fr; }
-      .hero-sidebar { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 24px; }
+      .hero-sidebar { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; }
       .card-grid { grid-template-columns: 1fr; }
       .checklist { grid-template-columns: 1fr; }
     }
@@ -110,13 +174,14 @@
 
 <header class="masthead">
   <div class="masthead-inner">
-    <div>
-      <a href="/" class="site-name">VoteInformed</a>
-      <div class="site-tagline">Voter guides · Issue explainers · Real world headlines</div>
+    <div class="masthead-left">
+      <a href="/" class="site-name">Vote<span>Informed</span></a>
+      <div class="site-tagline">Voter guides &middot; Issue explainers &middot; Real world headlines</div>
     </div>
     <div class="masthead-date" id="date-display"></div>
   </div>
 </header>
+<div class="masthead-rule"></div>
 
 <nav>
   <div class="nav-inner">
@@ -132,8 +197,8 @@
 
 <div class="banner">
   <div class="banner-inner">
-    <span class="banner-label">Guide</span>
-    <span>2026 midterm elections are coming — <a href="#register">check if you're registered</a> before your state's deadline.</span>
+    <span class="banner-label">2026</span>
+    <span>Midterm elections are coming — <a href="#register">check if you're registered</a> before your state's deadline.</span>
   </div>
 </div>
 
@@ -141,7 +206,7 @@
   <div class="hero-grid">
     <div class="hero-main">
       <div class="hero-eyebrow">Civic Education</div>
-      <h1 class="hero-headline">Know what you're voting on before you vote.</h1>
+      <h1 class="hero-headline">Know what you're voting on <em>before</em> you vote.</h1>
       <p class="hero-deck">VoteInformed breaks down how to register, where to vote, what the major issues actually mean, and how to stay informed — clearly, without spin.</p>
       <div class="hero-cta">
         <a href="#register" class="btn btn-primary">Check registration</a>
@@ -149,21 +214,21 @@
       </div>
     </div>
     <aside class="hero-sidebar">
-      <div class="sidebar-title">Start here</div>
+      <div class="sidebar-label">Start here</div>
       <div class="sidebar-item">
-        <div class="sidebar-item-label">Voting</div>
-        <a href="#register" class="sidebar-item-title">Am I registered to vote?</a>
-        <p class="sidebar-item-desc">How to check your status and register in any state.</p>
+        <div class="sidebar-cat">Voting</div>
+        <a href="#register" class="sidebar-title">Am I registered to vote?</a>
+        <p class="sidebar-desc">How to check your status and register in any state.</p>
       </div>
       <div class="sidebar-item">
-        <div class="sidebar-item-label">Issues</div>
-        <a href="#issues" class="sidebar-item-title">What are candidates actually debating?</a>
-        <p class="sidebar-item-desc">Plain-English breakdowns of the issues that shape elections.</p>
+        <div class="sidebar-cat">Issues</div>
+        <a href="#issues" class="sidebar-title">What are candidates actually debating?</a>
+        <p class="sidebar-desc">Plain-English breakdowns of the issues that shape elections.</p>
       </div>
       <div class="sidebar-item">
-        <div class="sidebar-item-label">Media</div>
-        <a href="/media.html" class="sidebar-item-title">Where does your news come from?</a>
-        <p class="sidebar-item-desc">See where major outlets fall on the political spectrum.</p>
+        <div class="sidebar-cat">Media</div>
+        <a href="/media.html" class="sidebar-title">Where does your news come from?</a>
+        <p class="sidebar-desc">See where major outlets fall on the political spectrum.</p>
       </div>
     </aside>
   </div>
@@ -173,66 +238,27 @@
 
   <section class="section" id="register">
     <div class="section-header">
-      <h2 class="section-title">How to vote</h2>
-      <a href="#" class="section-more">Full guide →</a>
+      <div class="section-title">How to vote</div>
+      <div class="section-header-rule"><div class="section-rule-thick"></div><div class="section-rule-thin"></div></div>
+      <a href="#" class="section-more">Full guide</a>
     </div>
     <div class="checklist">
-      <div class="check-item">
-        <div class="check-num">01</div>
-        <div>
-          <div class="check-title">Check if you're registered</div>
-          <div class="check-desc">Visit <a href="https://vote.gov" target="_blank">vote.gov</a> or your state's Secretary of State website to look up your registration status. It takes 60 seconds.</div>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-num">02</div>
-        <div>
-          <div class="check-title">Register or update your address</div>
-          <div class="check-desc">Most states let you register online. Deadlines vary — some allow same-day registration, others cut off 30 days before an election.</div>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-num">03</div>
-        <div>
-          <div class="check-title">Find your polling place</div>
-          <div class="check-desc">Your polling location is assigned by address. <a href="https://www.vote.org/polling-place-locator/" target="_blank">Vote.org's locator</a> works for every state.</div>
-        </div>
-      </div>
-      <div class="check-item">
-        <div class="check-num">04</div>
-        <div>
-          <div class="check-title">Know what ID you need</div>
-          <div class="check-desc">ID requirements vary by state — some require photo ID, others accept a utility bill. Check your state's rules before election day.</div>
-        </div>
-      </div>
+      <div class="check-item"><div class="check-num">01</div><div><div class="check-title">Check if you're registered</div><div class="check-desc">Visit <a href="https://vote.gov" target="_blank">vote.gov</a> or your state's Secretary of State website. Takes 60 seconds.</div></div></div>
+      <div class="check-item"><div class="check-num">02</div><div><div class="check-title">Register or update your address</div><div class="check-desc">Most states let you register online. Deadlines vary — some allow same-day, others cut off 30 days before.</div></div></div>
+      <div class="check-item"><div class="check-num">03</div><div><div class="check-title">Find your polling place</div><div class="check-desc"><a href="https://www.vote.org/polling-place-locator/" target="_blank">Vote.org's locator</a> works for every state and tells you your exact location.</div></div></div>
+      <div class="check-item"><div class="check-num">04</div><div><div class="check-title">Know what ID you need</div><div class="check-desc">Requirements vary by state — some require photo ID, others accept a utility bill. Check before election day.</div></div></div>
     </div>
   </section>
 
   <div class="lookup-box">
-    <div class="lookup-text">
+    <div style="flex:1;min-width:200px;">
       <div class="lookup-title">Get your state's voting rules</div>
       <div class="lookup-desc">Deadlines, ID requirements, early voting, and mail-in ballot info.</div>
     </div>
     <div class="lookup-form">
       <select class="lookup-select" id="state-select">
         <option value="">Select your state…</option>
-        <option>Alabama</option><option>Alaska</option><option>Arizona</option>
-        <option>Arkansas</option><option>California</option><option>Colorado</option>
-        <option>Connecticut</option><option>Delaware</option><option>Florida</option>
-        <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
-        <option>Illinois</option><option>Indiana</option><option>Iowa</option>
-        <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
-        <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
-        <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
-        <option>Missouri</option><option>Montana</option><option>Nebraska</option>
-        <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
-        <option>New Mexico</option><option>New York</option><option>North Carolina</option>
-        <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
-        <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
-        <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
-        <option>Texas</option><option>Utah</option><option>Vermont</option>
-        <option>Virginia</option><option>Washington</option><option>West Virginia</option>
-        <option>Wisconsin</option><option>Wyoming</option>
+        <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
       </select>
       <button class="btn btn-white" onclick="lookupState()">Look up rules</button>
     </div>
@@ -240,54 +266,26 @@
 
   <section class="section" id="issues">
     <div class="section-header">
-      <h2 class="section-title">The issues</h2>
-      <a href="/issues.html" class="section-more">All issues →</a>
+      <div class="section-title">The issues</div>
+      <div class="section-header-rule"><div class="section-rule-thick"></div><div class="section-rule-thin"></div></div>
+      <a href="/issues.html" class="section-more">All issues</a>
     </div>
     <div class="card-grid">
-      <a href="/issues.html" class="card">
-        <div class="card-tag tag-issue">Economy</div>
-        <h3 class="card-title">Inflation and the cost of living</h3>
-        <p class="card-body">Why everyday prices rose sharply, what the government can and can't control, and what different parties propose to fix it.</p>
-        <span class="card-link">Read the explainer</span>
-      </a>
-      <a href="/issues.html" class="card">
-        <div class="card-tag tag-issue">Healthcare</div>
-        <h3 class="card-title">Health insurance and the ACA</h3>
-        <p class="card-body">How the Affordable Care Act works, what's changed since 2010, and the debate over expanding or replacing it.</p>
-        <span class="card-link">Read the explainer</span>
-      </a>
-      <a href="/issues.html" class="card">
-        <div class="card-tag tag-issue">Immigration</div>
-        <h3 class="card-title">Border policy and immigration reform</h3>
-        <p class="card-body">The difference between legal and undocumented immigration, how enforcement actually works, and what reform proposals are on the table.</p>
-        <span class="card-link">Read the explainer</span>
-      </a>
+      <a href="/issues.html" class="card"><div class="card-tag tag-issue">Economy</div><h3 class="card-title">Inflation and the cost of living</h3><p class="card-body">Why everyday prices rose sharply, what the government can and can't control, and what different parties propose.</p><span class="card-link">Read explainer</span></a>
+      <a href="/issues.html" class="card"><div class="card-tag tag-issue">Healthcare</div><h3 class="card-title">Health insurance and the ACA</h3><p class="card-body">How the Affordable Care Act works, what's changed since 2010, and the debate over expanding or replacing it.</p><span class="card-link">Read explainer</span></a>
+      <a href="/issues.html" class="card"><div class="card-tag tag-issue">Immigration</div><h3 class="card-title">Border policy and reform</h3><p class="card-body">The difference between legal and undocumented immigration, how enforcement works, and what reform looks like.</p><span class="card-link">Read explainer</span></a>
     </div>
   </section>
 
   <section class="section" id="media">
     <div class="section-header">
-      <h2 class="section-title">Media &amp; news</h2>
+      <div class="section-title">Media &amp; news</div>
+      <div class="section-header-rule"><div class="section-rule-thick"></div><div class="section-rule-thin"></div></div>
     </div>
     <div class="card-grid">
-      <a href="/news.html" class="card">
-        <div class="card-tag tag-news">Latest</div>
-        <h3 class="card-title">Today's news, explained</h3>
-        <p class="card-body">Breaking stories on politics, leadership changes, international affairs, and more — with context.</p>
-        <span class="card-link">Read the news</span>
-      </a>
-      <a href="/opinions.html" class="card">
-        <div class="card-tag tag-issue">Opinion</div>
-        <h3 class="card-title">Perspectives worth reading</h3>
-        <p class="card-body">Curated opinions and commentary from across the political spectrum — clearly labeled so you know where they're coming from.</p>
-        <span class="card-link">Read opinions</span>
-      </a>
-      <a href="/media.html" class="card">
-        <div class="card-tag tag-media">Media literacy</div>
-        <h3 class="card-title">Where your news comes from</h3>
-        <p class="card-body">An interactive guide to media bias — click any outlet to see its political lean, factual accuracy rating, and PolitiFact scores.</p>
-        <span class="card-link">View media bias chart</span>
-      </a>
+      <a href="/news.html" class="card"><div class="card-tag tag-news">Latest</div><h3 class="card-title">Today's news, explained</h3><p class="card-body">Breaking stories on politics, leadership changes, international affairs — with context, not spin.</p><span class="card-link">Read the news</span></a>
+      <a href="/opinions.html" class="card"><div class="card-tag tag-issue">Opinion</div><h3 class="card-title">Perspectives worth reading</h3><p class="card-body">Original commentary and reader submissions from across the political spectrum, clearly labeled.</p><span class="card-link">Read opinions</span></a>
+      <a href="/media.html" class="card"><div class="card-tag tag-media">Media literacy</div><h3 class="card-title">Where your news comes from</h3><p class="card-body">An interactive media bias chart — click any outlet to see its political lean, accuracy, and PolitiFact scores.</p><span class="card-link">View chart</span></a>
     </div>
   </section>
 
@@ -295,30 +293,31 @@
 
 <footer>
   <div class="footer-inner">
-    <div>
-      <div class="footer-name">VoteInformed</div>
-      <div style="margin-top:4px;">Nonpartisan civic education. No ads, no agenda.</div>
+    <div class="footer-top">
+      <div>
+        <div class="footer-name">Vote<span>Informed</span></div>
+        <div class="footer-tagline">Nonpartisan civic education &middot; No ads &middot; No agenda</div>
+      </div>
+      <div class="footer-links">
+        <a href="#register">How to vote</a>
+        <a href="#issues">Issues</a>
+        <a href="/news.html">News</a>
+        <a href="/opinions.html">Opinions</a>
+        <a href="/media.html">Media Bias</a>
+        <a href="/about.html">About</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="#register">How to vote</a>
-      <a href="#issues">Issues</a>
-      <a href="/news.html">News</a>
-      <a href="/opinions.html">Opinions</a>
-      <a href="/media.html">Media Bias</a>
-      <a href="/about.html">About</a>
-    </div>
+    <div class="footer-bottom">© 2026 VoteInformed · voteinformed.info</div>
   </div>
 </footer>
 
 <script>
   document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
   function lookupState() {
     const state = document.getElementById('state-select').value;
     if (!state) { alert('Please select your state first.'); return; }
     window.open('https://www.vote.org/state/' + state.toLowerCase().replace(/\s+/g, '-') + '/', '_blank');
   }
-
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
@@ -326,6 +325,5 @@
     });
   });
 </script>
-
 </body>
 </html>
