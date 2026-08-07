@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>California Voting Guide — VoteInformed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+   VOTEINFORMED — SHARED DESIGN SYSTEM v2
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0d0d0d;
+  --ink-2: #333333;
+  --ink-3: #6b6b6b;
+  --ink-4: #999999;
+  --rule: #d8d4cc;
+  --rule-light: #eae7e0;
+  --bg: #f5f3ee;
+  --white: #ffffff;
+  --accent: #1a3a5c;
+  --accent-2: #2a5a8c;
+  --red: #b01c1c;
+  --red-light: #fdf0f0;
+  --green: #1a5c3a;
+  --amber: #7a4e00;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+/* ── MASTHEAD ── */
+.masthead { background: var(--white); padding: 0 24px; border-bottom: 1px solid var(--rule); }
+.masthead-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 18px 0 14px; gap: 16px; flex-wrap: wrap; }
+.masthead-left { display: flex; flex-direction: column; }
+.site-name { font-family: var(--serif); font-size: clamp(30px, 5vw, 52px); font-weight: 900; letter-spacing: -1.5px; color: var(--ink); line-height: 1; text-decoration: none; display: block; }
+.site-name span { color: var(--accent); }
+.site-tagline { font-size: 11px; color: var(--ink-4); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 5px; }
+.masthead-date { font-size: 11px; color: var(--ink-4); letter-spacing: 0.06em; text-align: right; }
+/* Triple rule bar */
+.masthead-rule { height: 5px; background: var(--ink); position: relative; }
+.masthead-rule::before { content: ''; position: absolute; top: -3px; left: 0; right: 0; height: 1px; background: var(--rule); }
+.masthead-rule::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--rule); }
+/* ── NAV ── */
+nav { background: var(--ink); padding: 0 24px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+nav a { color: #aaa; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 11px 18px; display: block; white-space: nowrap; transition: color 0.15s, background 0.15s; border-bottom: 2px solid transparent; }
+nav a:hover { color: #fff; }
+nav a.active { color: #fff; border-bottom-color: #6a9fd8; }
+/* ── BUTTONS ── */
+.btn { display: inline-block; padding: 11px 22px; font-size: 13px; font-weight: 600; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.15s; border: none; cursor: pointer; font-family: var(--sans); }
+.btn-primary { background: var(--ink); color: white; }
+.btn-primary:hover { background: var(--accent); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn-outline:hover { background: var(--ink); color: white; }
+.btn-white { background: white; color: var(--accent); font-weight: 600; }
+.btn-white:hover { background: #e8eef5; }
+/* ── SECTION HEADERS ── */
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
+.section-header-rule { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.section-title { font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+.section-rule-thick { height: 2px; background: var(--ink); }
+.section-rule-thin { height: 1px; background: var(--rule); }
+.section-more { font-size: 11px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
+.section-more:hover { color: var(--accent-2); }
+/* ── FOOTER ── */
+footer { background: var(--ink); color: #888; padding: 40px 24px 32px; margin-top: 64px; font-size: 13px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; padding-bottom: 24px; border-bottom: 1px solid #222; margin-bottom: 24px; }
+.footer-name { font-family: var(--serif); font-size: 22px; font-weight: 900; color: white; letter-spacing: -0.5px; margin-bottom: 4px; }
+.footer-name span { color: var(--accent-2); }
+.footer-tagline { font-size: 12px; color: #666; letter-spacing: 0.06em; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { color: #888; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; }
+.footer-links a:hover { color: white; }
+.footer-bottom { font-size: 11px; color: #444; letter-spacing: 0.04em; }
+    /* ── HERO ── */
+    .hero { max-width: 1100px; margin: 0 auto; padding: 40px 24px 0; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 320px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
+    .hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--accent); }
+    .hero-headline { font-family: var(--serif); font-size: clamp(34px, 4.5vw, 58px); font-weight: 900; line-height: 1.05; letter-spacing: -1px; color: var(--ink); margin-bottom: 20px; }
+    .hero-headline em { font-style: italic; color: var(--accent); }
+    .hero-deck { font-size: 17px; color: var(--ink-2); line-height: 1.7; margin-bottom: 28px; max-width: 540px; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-sidebar { border-left: 1px solid var(--rule); padding-left: 32px; }
+    .sidebar-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+    .sidebar-item { padding: 16px 0; border-bottom: 1px solid var(--rule-light); }
+    .sidebar-item:last-child { border-bottom: none; }
+    .sidebar-cat { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 5px; }
+    .sidebar-title { font-family: var(--serif); font-size: 16px; font-weight: 700; line-height: 1.35; color: var(--ink); text-decoration: none; display: block; transition: color 0.15s; }
+    .sidebar-title:hover { color: var(--accent); }
+    .sidebar-desc { font-size: 12px; color: var(--ink-4); margin-top: 4px; line-height: 1.5; }
+    /* ── CONTAINER ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 40px 0; border-top: 1px solid var(--rule); }
+    /* ── CARDS ── */
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .card { background: var(--white); padding: 22px; text-decoration: none; display: block; transition: background 0.15s; }
+    .card:hover { background: #faf8f4; }
+    .card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .card-tag::before { content: ''; display: inline-block; width: 3px; height: 12px; }
+    .tag-issue::before { background: var(--accent); }
+    .tag-vote::before { background: var(--accent); }
+    .tag-media::before { background: var(--green); }
+    .tag-news::before { background: var(--amber); }
+    .tag-issue { color: var(--accent); }
+    .tag-vote { color: var(--accent); }
+    .tag-media { color: var(--green); }
+    .tag-news { color: var(--amber); }
+    .card-title { font-family: var(--serif); font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
+    .card-body { font-size: 13px; color: var(--ink-3); line-height: 1.65; margin-bottom: 14px; }
+    .card-link { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+    /* ── CHECKLIST ── */
+    .checklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .check-item { background: var(--white); padding: 22px; display: flex; gap: 18px; align-items: flex-start; }
+    .check-num { font-family: var(--serif); font-size: 36px; font-weight: 900; color: var(--rule); line-height: 1; flex-shrink: 0; width: 40px; }
+    .check-title { font-weight: 600; font-size: 15px; margin-bottom: 5px; }
+    .check-desc { font-size: 13px; color: var(--ink-3); line-height: 1.55; }
+    .check-desc a { color: var(--accent); text-decoration: underline; }
+    /* ── LOOKUP / CALLOUT ── */
+    .lookup-box { background: var(--accent); color: white; padding: 32px; }
+    .lookup-title { font-family: var(--serif); font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .lookup-desc { font-size: 14px; opacity: 0.8; margin-bottom: 20px; max-width: 620px; }
+    .local-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .local-link { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); padding: 16px 18px; text-decoration: none; display: block; transition: background 0.15s; }
+    .local-link:hover { background: rgba(255,255,255,0.16); }
+    .local-link-county { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a9c3dd; margin-bottom: 6px; }
+    .local-link-title { font-family: var(--serif); font-size: 16px; font-weight: 700; color: white; margin-bottom: 4px; }
+    .local-link-desc { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+    /* ── BANNER ── */
+    .banner { background: #1a1a2e; color: white; padding: 10px 24px; }
+    .banner-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; font-size: 13px; }
+    .banner-label { background: var(--accent); color: white; font-weight: 700; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 2px 8px; flex-shrink: 0; }
+    .banner a { color: rgba(255,255,255,0.85); text-decoration: underline; }
+    .note { font-size: 13px; color: var(--ink-3); line-height: 1.7; margin-bottom: 24px; max-width: 760px; }
+    .note strong { color: var(--ink-2); }
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-sidebar { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 28px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .checklist { grid-template-columns: 1fr; }
+      .local-links { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-left">
+      <a href="/" class="site-name">Vote<span>Informed</span></a>
+      <div class="site-tagline">Voter guides &middot; Issue explainers &middot; Real world headlines</div>
+    </div>
+    <div class="masthead-date" id="date-display"></div>
+  </div>
+</header>
+<div class="masthead-rule"></div>
+<nav>
+  <div class="nav-inner">
+    <a href="/">Home</a>
+    <a href="/#register">How to Vote</a>
+    <a href="/california.html" class="active">California</a>
+    <a href="/#issues">The Issues</a>
+    <a href="/news.html">News</a>
+    <a href="/opinions.html">Opinions</a>
+    <a href="/media.html">Media Bias</a>
+    <a href="/about.html">About</a>
+  </div>
+</nav>
+<div class="banner">
+  <div class="banner-inner">
+    <span class="banner-label">CA</span>
+    <span>California's next statewide election is the General Election on <strong>Tuesday, November 3, 2026</strong> — <a href="https://voterstatus.sos.ca.gov/" target="_blank">check your registration</a> before the deadline.</span>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-grid">
+    <div class="hero-main">
+      <div class="hero-eyebrow">Local Guide &middot; California</div>
+      <h1 class="hero-headline">Where to vote, and <em>who's</em> on your ballot.</h1>
+      <p class="hero-deck">California mails every active registered voter a ballot automatically, but your exact polling location and your ballot's candidates depend on your address. Here's where to look both up, plus a shortcut for the Sacramento area.</p>
+      <div class="hero-cta">
+        <a href="#polling" class="btn btn-primary">Find your polling place</a>
+        <a href="#candidates" class="btn btn-outline">See who's running</a>
+      </div>
+    </div>
+    <aside class="hero-sidebar">
+      <div class="sidebar-label">Quick links</div>
+      <div class="sidebar-item">
+        <div class="sidebar-cat">Registration</div>
+        <a href="https://voterstatus.sos.ca.gov/" target="_blank" class="sidebar-title">Check your registration status</a>
+        <p class="sidebar-desc">California's official "My Voter Status" tool.</p>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-cat">Ballot</div>
+        <a href="https://www.vote411.org/plan-your-vote" target="_blank" class="sidebar-title">Build your personalized ballot</a>
+        <p class="sidebar-desc">Enter your address, see every race and candidate.</p>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-cat">Sacramento area</div>
+        <a href="https://elections.saccounty.gov/content/vre/us/en/vote-centers/locations.html" target="_blank" class="sidebar-title">Sacramento County vote centers</a>
+        <p class="sidebar-desc">Locations and hours near Folsom and the greater Sacramento area.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+<div class="container">
+
+  <section class="section" id="dates" style="border-top:none;">
+    <div class="section-header">
+      <div class="section-title">Key 2026 dates</div>
+      <div class="section-header-rule"><div class="section-rule-thick"></div><div class="section-rule-thin"></div></div>
+    </div>
+    <div class="checklist">
+      <div class="check-item"><div class="check-num">01</div><div><div class="check-title">General Election — November 3, 2026</div><div class="check-desc">Polls are open 7am–8pm statewide. California also held its statewide primary on June 2, 2026.</div></div></div>
+      <div class="check-item"><div class="check-num">02</div><div><div class="check-title">Registration deadline — October 19, 2026</div><div class="check-desc">Online, by mail (postmarked), or in person — 15 days before Election Day.</div></div></div>
+      <div class="check-item"><div class="check-num">03</div><div><div class="check-title">Same-day registration</div><div class="check-desc">Missed the deadline? You can still register and cast a conditional ballot in person through Election Day at any county elections office or vote center.</div></div></div>
+      <div class="check-item"><div class="check-num">04</div><div><div class="check-title">Every voter gets a mail ballot</div><div class="check-desc">Ballots go out to all active registered voters ~29 days before Election Day. You can mail it back, drop it in a secure drop box, or still vote in person instead.</div></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="polling">
+    <div class="section-header">
+      <div class="section-title">Find your polling place</div>
+      <div class="section-header-rule"><div class="section-rule-thick"></div><div class="section-rule-thin"></div></div>
+    </div>
+    <p class="note">Most of California — including Sacramento, Placer, and El Dorado counties — has moved to the <strong>Voter's Choice Act</strong> model: instead of one assigned precinct, you can vote at any open vote center in your county, starting several days before Election Day.</p>
+    <div class="card-grid">
+      <a href="https://www.sos.ca.gov/elections/polling-place" target="_blank" class="card">
+        <div class="card-tag tag-vote">Statewide</div>
+        <h3 class="card-title">Official polling place directory</h3>
+        <p class="card-body">California Secretary of State's county-by-county directory — links to every county's own polling place or vote center lookup tool.</p>
+        <span class="card-link">Open directory →</span>
+      </a>
+      <a href="https://caearlyvoting.sos.ca.gov/" target="_blank" class="card">
+        <div class="card-tag tag-vote">Early voting</div>
+        <h3 class="card-title">Early vote centers &amp; drop boxes</h3>
+        <p class="card-body">Find early in-person voting locations and secure ballot drop-off boxes near any California address.</p>
+        <span class="card-link">Find a location →</span>
+      </a>
+      <a href="https://california.ballottrax.net/voter/" target="_blank" class="card">
+        <div class="card-tag tag-vote">Mail ballot</div>
+        <h3 class="card-title">Track your ballot — Where's My Ballot</h3>
+        <p class="card-body">Sign up for text, email, or voice alerts when your mail ballot is sent, received, and counted.</p>
+        <span class="card-link">Track my ballot →</span>
+      </a>
+    </div>
+
+    <div class="lookup-box" style="margin-top:1px;">
+      <div class="lookup-title">Local to the Sacramento area</div>
+      <div class="lookup-desc">Folsom sits close to the Sacramento, Placer, and El Dorado county lines — your assigned county depends on your exact address, so check the one that matches yours.</div>
+      <div class="local-links">
+        <a class="local-link" href="https://elections.saccounty.gov/content/vre/us/en/vote-centers/locations.html" target="_blank">
+          <div class="local-link-county">Sacramento County</div>
+          <div class="local-link-title">Vote center locations</div>
+          <div class="local-link-desc">Most of Folsom falls here. (916) 875-6451</div>
+        </a>
+        <a class="local-link" href="https://www.placercountyelections.gov/vote-center-locations/" target="_blank">
+          <div class="local-link-county">Placer County</div>
+          <div class="local-link-title">Vote center locations</div>
+          <div class="local-link-desc">Covers Roseville, Rocklin, and nearby areas. (530) 886-5650</div>
+        </a>
+        <a class="local-link" href="https://caearlyvoting.sos.ca.gov/" target="_blank">
+          <div class="local-link-county">El Dorado County</div>
+          <div class="local-link-title">Vote center &amp; drop box locations</div>
+          <div class="local-link-desc">Covers El Dorado Hills and nearby areas. (530) 621-7480</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="candidates">
+    <div class="section-header">
+      <div class="section-title">Who's on your ballot</div>
+      <div class="section-header-rule"><div class="section-rule-thick"></div><div class="section-rule-thin"></div></div>
+    </div>
+    <p class="note">California uses a "top-two" primary for most state and federal offices (U.S. Senate, U.S. House, Governor, and other statewide and legislative races) — the two highest vote-getters in June advance to November regardless of party. Exactly who appears on your ballot depends on your specific address, district lines, and any local races or measures — use a personalized lookup rather than a generic candidate list.</p>
+    <div class="card-grid">
+      <a href="https://www.vote411.org/plan-your-vote" target="_blank" class="card">
+        <div class="card-tag tag-issue">Personalized</div>
+        <h3 class="card-title">VOTE411 — build your ballot</h3>
+        <p class="card-body">Nonpartisan tool from the League of Women Voters. Enter your address to see every contest on your ballot, with candidate-submitted statements and ballot measure explanations.</p>
+        <span class="card-link">Preview my ballot →</span>
+      </a>
+      <a href="https://ballotpedia.org/California_elections,_2026" target="_blank" class="card">
+        <div class="card-tag tag-issue">Reference</div>
+        <h3 class="card-title">Ballotpedia — CA elections, 2026</h3>
+        <p class="card-body">Full candidate lists by office — U.S. House, State Senate, State Assembly, statewide offices — with party, incumbency, and candidacy status.</p>
+        <span class="card-link">Browse candidates →</span>
+      </a>
+      <a href="https://voterguide.sos.ca.gov/" target="_blank" class="card">
+        <div class="card-tag tag-issue">Official</div>
+        <h3 class="card-title">CA Official Voter Information Guide</h3>
+        <p class="card-body">The state's own guide, mailed to every household — statewide candidate statements, ballot measure text, and arguments for and against.</p>
+        <span class="card-link">Read the guide →</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-name">Vote<span>Informed</span></div>
+        <div class="footer-tagline">Nonpartisan civic education &middot; No ads &middot; No agenda</div>
+      </div>
+      <div class="footer-links">
+        <a href="/#register">How to vote</a>
+        <a href="/california.html">California</a>
+        <a href="/#issues">Issues</a>
+        <a href="/news.html">News</a>
+        <a href="/opinions.html">Opinions</a>
+        <a href="/media.html">Media Bias</a>
+        <a href="/about.html">About</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 VoteInformed · voteinformed.info · Polling place, ballot, and registration links point to official state/county sources or nonpartisan League of Women Voters tools — not VoteInformed itself.</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('date-display').textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
