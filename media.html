@@ -5,29 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Media Bias — VoteInformed</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ============================================
    VOTEINFORMED — SHARED DESIGN SYSTEM v2
    ============================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --ink: #0d0d0d;
-  --ink-2: #333333;
-  --ink-3: #6b6b6b;
-  --ink-4: #999999;
-  --rule: #d8d4cc;
-  --rule-light: #eae7e0;
-  --bg: #f5f3ee;
+  --ink: #17140f;
+  --ink-2: #38332c;
+  --ink-3: #6b6155;
+  --ink-4: #96897b;
+  --rule: #dad2c2;
+  --rule-light: #ece5d6;
+  --bg: #f2ece0;
   --white: #ffffff;
-  --accent: #1a3a5c;
-  --accent-2: #2a5a8c;
-  --red: #b01c1c;
+  --accent: #2d4a47;
+  --accent-2: #3f6660;
+  --red: #9c3b30;
   --red-light: #fdf0f0;
-  --green: #1a5c3a;
-  --amber: #7a4e00;
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'Inter', system-ui, sans-serif;
+  --green: #3f6b3f;
+  --amber: #8a5a12;
+  --serif: 'Newsreader', Georgia, serif;
+  --sans: 'Public Sans', system-ui, sans-serif;
 }
 
 body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -61,21 +61,21 @@ nav a.active { color: #fff; border-bottom-color: var(--red); }
 .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
 .btn-outline:hover { background: var(--ink); color: white; }
 .btn-white { background: white; color: var(--accent); font-weight: 600; }
-.btn-white:hover { background: #e8eef5; }
+.btn-white:hover { background: #e3eeec; }
 
 /* ── SECTION HEADERS ── */
-.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
-.section-header-rule { flex: 1; display: flex; flex-direction: column; gap: 3px; }
-.section-title { font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
-.section-rule-thick { height: 2px; background: var(--ink); }
+.section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.section-header-rule { flex: 1; }
+.section-title { font-family: var(--serif); font-size: 22px; font-weight: 600; font-style: italic; letter-spacing: -0.2px; color: var(--ink); white-space: nowrap; }
+.section-rule-thick { display: none; }
 .section-rule-thin { height: 1px; background: var(--rule); }
 .section-more { font-size: 11px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
 .section-more:hover { color: var(--red); }
 
 /* ── ZONE HEADERS (news page) ── */
 .zone-header { display: flex; align-items: stretch; gap: 0; margin-bottom: 24px; }
-.zone-flag-box { background: var(--ink); color: white; font-size: 20px; padding: 10px 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.zone-title-box { flex: 1; border: 2px solid var(--ink); border-left: none; padding: 8px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.zone-flag-box { display: none; }
+.zone-title-box { flex: 1; border: 2px solid var(--ink); padding: 8px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .zone-title { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.3px; }
 .zone-heat { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 10px; flex-shrink: 0; }
 .heat-critical { background: var(--red); color: white; }
@@ -101,7 +101,7 @@ footer { background: var(--ink); color: #888; padding: 40px 24px 32px; margin-to
 }
     .site-name span { color: var(--accent); }
     .footer-name span { color: var(--accent-2); }
-    nav a.active { color: #fff; border-bottom-color: #6a9fd8; }
+    nav a.active { color: #fff; border-bottom-color: #7fada3; }
 
     .page-header { background: var(--accent); color: white; padding: 52px 24px; }
     .page-header-inner { max-width: 900px; margin: 0 auto; }
@@ -144,7 +144,7 @@ footer { background: var(--ink); color: #888; padding: 40px 24px 32px; margin-to
     .detail-name { font-family: var(--serif); font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
     .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
     .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; }
-    .badge-lean { background: #e8eef5; color: var(--accent); }
+    .badge-lean { background: #e3eeec; color: var(--accent); }
     .badge-good { background: #e8f5ee; color: var(--green); }
     .badge-mixed { background: #fff8e0; color: var(--amber); }
     .badge-poor { background: #fde8e8; color: #8b2020; }

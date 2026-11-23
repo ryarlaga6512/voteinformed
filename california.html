@@ -5,29 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>California Voting Guide — VoteInformed</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ============================================
    VOTEINFORMED — SHARED DESIGN SYSTEM v2
    ============================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --ink: #0d0d0d;
-  --ink-2: #333333;
-  --ink-3: #6b6b6b;
-  --ink-4: #999999;
-  --rule: #d8d4cc;
-  --rule-light: #eae7e0;
-  --bg: #f5f3ee;
+  --ink: #17140f;
+  --ink-2: #38332c;
+  --ink-3: #6b6155;
+  --ink-4: #96897b;
+  --rule: #dad2c2;
+  --rule-light: #ece5d6;
+  --bg: #f2ece0;
   --white: #ffffff;
-  --accent: #1a3a5c;
-  --accent-2: #2a5a8c;
-  --red: #b01c1c;
+  --accent: #2d4a47;
+  --accent-2: #3f6660;
+  --red: #9c3b30;
   --red-light: #fdf0f0;
-  --green: #1a5c3a;
-  --amber: #7a4e00;
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'Inter', system-ui, sans-serif;
+  --green: #3f6b3f;
+  --amber: #8a5a12;
+  --serif: 'Newsreader', Georgia, serif;
+  --sans: 'Public Sans', system-ui, sans-serif;
 }
 body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 /* ── MASTHEAD ── */
@@ -48,7 +48,7 @@ nav { background: var(--ink); padding: 0 24px; }
 .nav-inner::-webkit-scrollbar { display: none; }
 nav a { color: #aaa; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 11px 18px; display: block; white-space: nowrap; transition: color 0.15s, background 0.15s; border-bottom: 2px solid transparent; }
 nav a:hover { color: #fff; }
-nav a.active { color: #fff; border-bottom-color: #6a9fd8; }
+nav a.active { color: #fff; border-bottom-color: #7fada3; }
 /* ── BUTTONS ── */
 .btn { display: inline-block; padding: 11px 22px; font-size: 13px; font-weight: 600; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.15s; border: none; cursor: pointer; font-family: var(--sans); }
 .btn-primary { background: var(--ink); color: white; }
@@ -56,12 +56,12 @@ nav a.active { color: #fff; border-bottom-color: #6a9fd8; }
 .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
 .btn-outline:hover { background: var(--ink); color: white; }
 .btn-white { background: white; color: var(--accent); font-weight: 600; }
-.btn-white:hover { background: #e8eef5; }
+.btn-white:hover { background: #e3eeec; }
 /* ── SECTION HEADERS ── */
-.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; }
-.section-header-rule { flex: 1; display: flex; flex-direction: column; gap: 3px; }
-.section-title { font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
-.section-rule-thick { height: 2px; background: var(--ink); }
+.section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.section-header-rule { flex: 1; }
+.section-title { font-family: var(--serif); font-size: 22px; font-weight: 600; font-style: italic; letter-spacing: -0.2px; color: var(--ink); white-space: nowrap; }
+.section-rule-thick { display: none; }
 .section-rule-thin { height: 1px; background: var(--rule); }
 .section-more { font-size: 11px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; white-space: nowrap; }
 .section-more:hover { color: var(--accent-2); }
@@ -116,7 +116,7 @@ footer { background: var(--ink); color: #888; padding: 40px 24px 32px; margin-to
     /* ── CHECKLIST ── */
     .checklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
     .check-item { background: var(--white); padding: 22px; display: flex; gap: 18px; align-items: flex-start; }
-    .check-num { font-family: var(--serif); font-size: 36px; font-weight: 900; color: var(--rule); line-height: 1; flex-shrink: 0; width: 40px; }
+    .check-num { font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--white); background: var(--accent); line-height: 1; flex-shrink: 0; width: 26px; height: 26px; border-radius: 2px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
     .check-title { font-weight: 600; font-size: 15px; margin-bottom: 5px; }
     .check-desc { font-size: 13px; color: var(--ink-3); line-height: 1.55; }
     .check-desc a { color: var(--accent); text-decoration: underline; }
@@ -127,11 +127,11 @@ footer { background: var(--ink); color: #888; padding: 40px 24px 32px; margin-to
     .local-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .local-link { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); padding: 16px 18px; text-decoration: none; display: block; transition: background 0.15s; }
     .local-link:hover { background: rgba(255,255,255,0.16); }
-    .local-link-county { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a9c3dd; margin-bottom: 6px; }
+    .local-link-county { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a8c9c2; margin-bottom: 6px; }
     .local-link-title { font-family: var(--serif); font-size: 16px; font-weight: 700; color: white; margin-bottom: 4px; }
     .local-link-desc { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.5; }
     /* ── BANNER ── */
-    .banner { background: #1a1a2e; color: white; padding: 10px 24px; }
+    .banner { background: #1b2e2a; color: white; padding: 10px 24px; }
     .banner-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; font-size: 13px; }
     .banner-label { background: var(--accent); color: white; font-weight: 700; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 2px 8px; flex-shrink: 0; }
     .banner a { color: rgba(255,255,255,0.85); text-decoration: underline; }
